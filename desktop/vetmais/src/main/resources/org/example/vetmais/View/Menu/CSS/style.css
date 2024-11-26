@@ -1,0 +1,17 @@
+.d:hover{
+    -fx-border-color: #990099;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+.p:hover{
+    -fx-border-color: #009966;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+.r:hover{
+    -fx-border-color: #cc0093;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.b:hover{
+    -fx-border-color: black;
+    -fx-border-width: 0px 0px 3px 0px;
+}

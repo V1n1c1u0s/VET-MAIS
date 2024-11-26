@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.vetmais.Controller.Animais.AnimaisController">
+    <children>
+        <TextField fx:id="f1" layoutX="216.0" layoutY="119.0" styleClass="i" stylesheets="@../CSS/style.css" />
+        <Label fx:id="l1" layoutX="226.0" layoutY="123.0" text="Nome" />
+        <TextField fx:id="f4" layoutX="216.0" layoutY="220.0" />
+        <TextField fx:id="f3" layoutX="216.0" layoutY="187.0" />
+        <TextField fx:id="f2" layoutX="216.0" layoutY="157.0" />
+        <Label fx:id="l3" layoutX="226.0" layoutY="191.0" text="Raça" />
+        <Label fx:id="l2" layoutX="226.0" layoutY="161.0" text="Data de Nascimento" />
+        <Label fx:id="l4" layoutX="227.0" layoutY="224.0" text="Proprietário" />
+        <JFXButton fx:id="add_animal" layoutX="250.0" layoutY="282.0" text="Cadastrar">
+            <graphic>
+                <FontAwesomeIcon glyphName="PAW" />
+            </graphic>
+        </JFXButton>
+    </children>
+</AnchorPane>
