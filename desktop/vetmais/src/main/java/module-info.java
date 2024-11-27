@@ -24,6 +24,8 @@ module org.example.vetmais {
     opens org.example.vetmais.Model to javafx.fxml;
     exports org.example.vetmais.Controller.Clientes;
     opens org.example.vetmais.Controller.Clientes to javafx.fxml;
+    exports org.example.vetmais.Controller.Consultas;
+    opens org.example.vetmais.Controller.Consultas to javafx.fxml;
     exports org.example.vetmais.Domain;
     opens org.example.vetmais.Domain to javafx.fxml;
     exports org.example.vetmais.Model.DAO;

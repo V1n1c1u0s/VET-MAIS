@@ -75,12 +75,15 @@ public class MenuController implements Initializable {
     @FXML
     private void pagecli(MouseEvent event) throws IOException {
         new SwitchScene(content, "View/Clientes/FXML/Clientes.fxml");
-        System.out.println("MUDOUUUUU 1");
     }
 
     @FXML
     private void pageani(MouseEvent event) throws IOException {
         new SwitchScene(content, "View/Animais/FXML/Animais.fxml");
-        System.out.println("MUDOUUUUU 2");
+    }
+
+    @FXML
+    private void pagecons(MouseEvent event) throws IOException {
+        new SwitchScene(content, "View/Consultas/FXML/Consultas.fxml");
     }
 }

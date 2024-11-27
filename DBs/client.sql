@@ -20,3 +20,11 @@ CREATE TABLE animals (
     breed VARCHAR(100) NOT NULL,                -- Raça do animal
     cpf_proprietario VARCHAR(11) NOT NULL       -- CPF do proprietário (11 caracteres)
 );
+
+CREATE TABLE Consultas (
+    id INT AUTO_INCREMENT PRIMARY KEY,        -- ID único para a consulta
+    veterinario VARCHAR(100) NOT NULL,        -- Nome do veterinário
+    data_agendada DATETIME NOT NULL,          -- Data e hora agendada para a consulta
+    pet VARCHAR(100) NOT NULL,                -- Nome do pet
+    proprietario VARCHAR(100) NOT NULL        -- Nome do proprietário do pet
+);

@@ -36,7 +36,7 @@
                               <Font size="14.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton prefHeight="54.0" prefWidth="203.0" styleClass="b" stylesheets="@../CSS/style.css" text="Consultas">
+                        <JFXButton onMouseClicked="#pagecons" prefHeight="54.0" prefWidth="203.0" styleClass="b" stylesheets="@../CSS/style.css" text="Consultas">
                            <graphic>
                               <FontAwesomeIcon glyphName="CALENDAR" size="1.2em" />
                            </graphic>
