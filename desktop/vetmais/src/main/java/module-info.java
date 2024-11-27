@@ -8,6 +8,9 @@ module org.example.vetmais {
     requires com.jfoenix;
     requires java.sql;
     requires jdk.jdi;
+    requires mysql.connector.j;
+    requires java.desktop;
+    requires io.github.cdimascio.dotenv.java;
 
     opens org.example.vetmais to javafx.fxml;
     exports org.example.vetmais;
@@ -21,4 +24,10 @@ module org.example.vetmais {
     opens org.example.vetmais.Model to javafx.fxml;
     exports org.example.vetmais.Controller.Clientes;
     opens org.example.vetmais.Controller.Clientes to javafx.fxml;
+    exports org.example.vetmais.Domain;
+    opens org.example.vetmais.Domain to javafx.fxml;
+    exports org.example.vetmais.Model.DAO;
+    opens org.example.vetmais.Model.DAO to javafx.fxml;
+    exports org.example.vetmais.Model.Database;
+    opens org.example.vetmais.Model.Database to javafx.fxml;
 }

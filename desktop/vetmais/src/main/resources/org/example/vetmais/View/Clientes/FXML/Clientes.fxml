@@ -2,21 +2,16 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.vetmais.Controller.Clientes.ClientesController">
     <children>
-        <TextField fx:id="t1" layoutX="216.0" layoutY="119.0" styleClass="i" stylesheets="@../CSS/style.css" />
-        <Label fx:id="la1" layoutX="226.0" layoutY="123.0" text="Nome" />
-        <TextField fx:id="t4" layoutX="216.0" layoutY="220.0" />
-        <TextField fx:id="t3" layoutX="216.0" layoutY="187.0" />
-        <TextField fx:id="t2" layoutX="216.0" layoutY="157.0" />
-        <Label fx:id="la3" layoutX="226.0" layoutY="191.0" text="CPF" />
-        <Label fx:id="la2" layoutX="226.0" layoutY="161.0" text="Data de Nascimento" />
-        <Label fx:id="la4" layoutX="227.0" layoutY="224.0" text="E-mail" />
-        <JFXButton fx:id="add_cliente" layoutX="250.0" layoutY="282.0" text="Cadastrar">
+        <TextField fx:id="t1" layoutX="216.0" layoutY="119.0" promptText="Nome" styleClass="i" stylesheets="@../CSS/style.css" />
+        <TextField fx:id="t4" layoutX="216.0" layoutY="220.0" promptText="Telefone" />
+        <TextField fx:id="t3" layoutX="216.0" layoutY="187.0" promptText="E-mail" />
+        <TextField fx:id="t2" layoutX="216.0" layoutY="157.0" promptText="CPF" />
+        <JFXButton layoutX="250.0" layoutY="282.0" onAction="#saveClient" text="Cadastrar">
             <graphic>
                 <FontAwesomeIcon glyphName="PAW" />
             </graphic>
