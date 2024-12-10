@@ -35,7 +35,7 @@
                     <span class="icon">
                         <ion-icon name="mail"></ion-icon>
                     </span>
-                    <input type="email" required>
+                    <input type="email" required id="email">
                     <label>Email</label>
                 </div>
                 <div class="input-box">
@@ -43,7 +43,7 @@
                         <ion-icon name="lock-closed">
                         </ion-icon>
                     </span>
-                    <input type="password" required>
+                    <input type="password" required id="senha">
                     <label>Senha</label>
                 </div>
                    <div class="remember-forgot">
@@ -51,7 +51,7 @@
                    Lembrar-me </label>
                    <a href="#">Esqueceu a senha?</a>
                 </div>
-                <button type="submit" class="btn">Entrar
+                <button type="submit" class="btn" onclick="logar(); return false">Entrar
                 </button>      
                 <div class="login-register">    
                    <p>Não possui uma conta?<a
@@ -68,14 +68,14 @@
                     <span class="icon">
                         <ion-icon name="person"></ion-icon>
                     </span>
-                    <input type="text" required>
+                    <input type="text" required id="usuariocadastro">
                     <label>Usuário</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="mail"></ion-icon>
                     </span>
-                    <input type="email" required>
+                    <input type="email" required id="emailcadastro">
                     <label>Email</label>
                 </div>
                 <div class="input-box">
@@ -83,14 +83,14 @@
                         <ion-icon name="lock-closed">
                         </ion-icon>
                     </span>
-                    <input type="password" required>
+                    <input type="password" required id="senhacadastro">
                     <label>Senha</label>
                 </div>
                    <div class="remember-forgot">
                    <label><input type="checkbox">
                    Concordo com os termos e condições </label>
                 </div>
-                <button type="submit" class="btn">Cadastrar-se
+                <button type="submit" class="btn" onclick="logarcadastro(); return false">Cadastrar-se
                 </button>      
                 <div class="login-register">    
                    <p>Já possui uma conta? <a
@@ -105,6 +105,35 @@
     <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        function logarcadastro(){
+            var usuariocadastro = document.getElementById('usuariocadastro').value;
+            var emailcadastro = document.getElementById('emailcadastro').value;
+            var senhacadastro = document.getElementById('senhacadastro').value;
+            if( usuariocadastro == 'admin' && emailcadastro == 'admin@gmail.com' && senhacadastro == 'admin'){
+                location.href = 'menu.html';
+            }
+            else{
+                alert('Email ou senha incorretos');
+            }
+
+        }
+    </script>
+    <script>
+        function logar(){
+            var email = document.getElementById('email').value;
+            var senha = document.getElementById('senha').value;
+            if(email == 'admin@gmail.com' && senha == 'admin'){
+                location.href = 'menu.html';
+            }
+            else{
+                alert('Email ou senha incorretos');
+            }
+        }
+    </script>
 </body>
 
 </html>
