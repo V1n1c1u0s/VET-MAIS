@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.vetmais.Controller.Consultas.ConsultasController">
-    <children>
-        <TextField fx:id="f1" layoutX="216.0" layoutY="187.0" promptText="Cliente" styleClass="i" stylesheets="@../CSS/style.css" />
-        <TextField fx:id="f4" layoutX="216.0" layoutY="220.0" promptText="Proprietário" />
-        <TextField fx:id="f3" layoutX="216.0" layoutY="118.0" promptText="Veterinário" />
-        <JFXButton layoutX="250.0" layoutY="282.0" onAction="#saveConsulta" text="Agendar">
-            <graphic>
-                <FontAwesomeIcon glyphName="PAW" />
-            </graphic>
-        </JFXButton>
-        <DatePicker fx:id="f2" layoutX="216.0" layoutY="153.0" prefHeight="26.0" prefWidth="150.0" promptText="Consulta" />
-    </children>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="64.0" layoutY="30.0" text="Pesquise consultas:" />
+      <TextField fx:id="searchBar" layoutX="173.0" layoutY="26.0" prefHeight="26.0" prefWidth="297.0" />
+      <JFXButton fx:id="addButton" alignment="CENTER" layoutX="484.0" layoutY="26.0" text="Add">
+         <graphic>
+            <FontAwesomeIcon glyphName="PLUS" />
+         </graphic>
+      </JFXButton>
+      <TableView fx:id="consultaTable" layoutX="64.0" layoutY="58.0" prefHeight="284.0" prefWidth="472.0">
+        <columns>
+          <TableColumn fx:id="clientColumn" prefWidth="75.0" text="CLIENTE" />
+          <TableColumn fx:id="ownerColumn" prefWidth="101.5999755859375" text="PROPRIETÁRIO" />
+            <TableColumn fx:id="vetColumn" prefWidth="95.2000732421875" text="VETERINÁRIO" />
+            <TableColumn fx:id="dateColumn" prefWidth="60.00006103515625" text="DATA" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>
