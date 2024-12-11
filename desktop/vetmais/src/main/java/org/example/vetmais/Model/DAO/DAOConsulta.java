@@ -37,8 +37,21 @@ public class DAOConsulta {
         }
     }
 
-    public boolean atualizar(Consulta consulta) throws Exception {
-        return false;
+    public boolean atualizar(Consulta consulta) {
+        String sql = "UPDATE Consultas SET veterinario = ?, data_agendada = ?, pet = ? WHERE proprietario = ?";
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, consulta.getNamevet());
+            stmt.setDate(2, Date.valueOf(consulta.getData_agendada()));
+            stmt.setString(3, consulta.getPet());
+            stmt.setString(4, consulta.getCpf_proprietario());
+
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0; // Retorna true se a atualização foi bem-sucedida
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOAnimal.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
 
     public boolean deletar(Consulta consulta) throws Exception {

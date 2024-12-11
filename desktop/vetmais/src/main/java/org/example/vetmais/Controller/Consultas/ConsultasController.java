@@ -139,13 +139,7 @@ public class ConsultasController implements Initializable {
                         );*/
                         deleteButton.setOnMouseClicked((MouseEvent event) -> {
                             try {
-                                //System.out.println(consulta.getCpf_proprietario());
-                                String pet = consultaTable.getSelectionModel().getSelectedItem().getPet();
-                                String vet = consultaTable.getSelectionModel().getSelectedItem().getNamevet();
-                                String prop = consultaTable.getSelectionModel().getSelectedItem().getCpf_proprietario();
-                                LocalDate data = consultaTable.getSelectionModel().getSelectedItem().getData_agendada();
-                                consulta = new Consulta(vet, data, pet, prop);
-                                System.out.println(consulta.getCpf_proprietario());
+                                consulta = consultaTable.getSelectionModel().getSelectedItem();
                                 String query = "DELETE FROM Consultas WHERE proprietario = ?";
                                 PreparedStatement preparedStatement = connection.prepareStatement(query);
                                 preparedStatement.setString(1, consulta.getCpf_proprietario());
@@ -158,18 +152,11 @@ public class ConsultasController implements Initializable {
                         });
                         editButton.setOnMouseClicked((MouseEvent event) -> {
                             try {
-                                String pet = consultaTable.getSelectionModel().getSelectedItem().getPet();
-                                String vet = consultaTable.getSelectionModel().getSelectedItem().getNamevet();
-                                String prop = consultaTable.getSelectionModel().getSelectedItem().getCpf_proprietario();
-                                LocalDate data = consultaTable.getSelectionModel().getSelectedItem().getData_agendada();
-                                consulta = new Consulta(vet, data, pet, prop);
-                                System.out.println(consulta.getCpf_proprietario());
-                                FXMLLoader loader = new FXMLLoader();
-                                loader.setLocation(getClass().getResource("View/consultas/Edit.fxml"));
-                                loader.load();
+                                consulta = consultaTable.getSelectionModel().getSelectedItem();
+                                FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(HelloApplication.class.getResource("View/Consultas/FXML/Edit.fxml")));
+                                Parent root = loader.load();
                                 EditController editController = loader.getController();
                                 editController.setConsulta(consulta);
-                                Parent root = loader.getRoot();
                                 Stage stage = new Stage();
                                 stage.setScene(new Scene(root));
                                 stage.show();
@@ -203,10 +190,10 @@ public class ConsultasController implements Initializable {
 
             while(resultSet.next()) {
                 consultaList.add(new Consulta(
-                        resultSet.getString("proprietario"),
+                        resultSet.getString("veterinario"),
                         resultSet.getDate("data_agendada").toLocalDate(),
                         resultSet.getString("pet"),
-                        resultSet.getString("veterinario")
+                        resultSet.getString("proprietario")
                 ));
                 consultaTable.setItems(consultaList);
             }
