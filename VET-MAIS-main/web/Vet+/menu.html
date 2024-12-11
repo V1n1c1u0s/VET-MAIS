@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vet+</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            background-color: #f0f8ff;
+            width: 200px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .sidebar button {
+            width: 90%;
+            height: 50px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 20px;
+            margin: 10px auto;
+            border: none;
+            background-color: #e6f7ff;
+            color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .sidebar button:hover {
+            background-color: #d4edff;
+        }
+
+        .sidebar button i {
+            margin-right: 10px;
+        }
+
+        .topbar {
+            height: 50px;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            border-bottom: 1px solid #ddd;
+            position: fixed;
+            top: 0;
+            left: 200px;
+            right: 0;
+        }
+
+        .topbar button {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .topbar button i {
+            margin-right: 5px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            margin-left: 200px;
+            margin-top: 50px; /* Ajusta o conteúdo principal para não sobrepor a topbar */
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centraliza verticalmente o conteúdo */
+            align-items: center; /* Centraliza horizontalmente o conteúdo */
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <button onclick="pageHome()">
+                <i class="fas fa-home"></i> Home
+            </button>
+            <button onclick="pageClientes()">
+                <i class="fas fa-users"></i> Clientes
+            </button>
+            <button onclick="pageAnimais()">
+                <i class="fas fa-paw"></i> Animais
+            </button>
+            <button onclick="pageConsultas()">
+                <i class="fas fa-calendar"></i> Consultas
+            </button>
+            <button onclick="pageRelatorios()">
+                <i class="fas fa-clipboard"></i> Relatórios
+            </button>
+            <button onclick="pageContato()">
+                <i class="fas fa-phone"></i> Contato
+            </button>
+        </div>
+
+        <!-- Main Content -->
+        <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- Topbar -->
+            <div class="topbar">
+                <button onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i> Menu
+                </button>
+                <button onclick="pagePagamentos()">
+                    <i class="fas fa-dollar-sign"></i> Pagamentos
+                </button>
+                <button onclick="pageDashboard()">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </button>
+                <button onclick="pageMensagens()">
+                    <i class="fas fa-envelope"></i> Mensagens
+                </button>
+            </div>
+
+            <!-- Dynamic Content Area -->
+            <div id="content">
+                <h1>Bem-vindo ao Vet+</h1>
+                <p>Selecione uma opção no menu para começar.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function pageHome() {
+            document.getElementById('content').innerHTML = '<h1>Home</h1><p>Bem-vindo à página inicial.</p>';
+        }
+        function pageClientes() {
+            document.getElementById('content').innerHTML = '<h1>Clientes</h1><p>Gerencie seus clientes aqui.</p>';
+        }
+        function pageAnimais() {
+            document.getElementById('content').innerHTML = '<h1>Animais</h1><p>Gerencie informações sobre os animais.</p>';
+        }
+        function pageConsultas() {
+            document.getElementById('content').innerHTML = '<h1>Consultas</h1><p>Agende e visualize consultas.</p>';
+        }
+        function pageRelatorios() {
+            document.getElementById('content').innerHTML = '<h1>Relatórios</h1><p>Acesse os relatórios detalhados.</p>';
+        }
+        function pageContato() {
+            document.getElementById('content').innerHTML = '<h1>Contato</h1><p>Entre em contato conosco.</p>';
+        }
+        function pagePagamentos() {
+            document.getElementById('content').innerHTML = '<h1>Pagamentos</h1><p>Gerencie seus pagamentos.</p>';
+        }
+        function pageDashboard() {
+            document.getElementById('content').innerHTML = '<h1>Dashboard</h1><p>Visão geral do sistema.</p>';
+        }
+        function pageMensagens() {
+            document.getElementById('content').innerHTML = '<h1>Mensagens</h1><p>Confira suas mensagens.</p>';
+        }
+        function toggleMenu() {
+            alert("Menu lateral ativado/desativado.");
+        }
+    </script>
+</body>
+</html>
