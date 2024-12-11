@@ -15,12 +15,12 @@ public class Animal {
         this.cpf_proprietario = cpf_proprietario;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public LocalDate getBirth_date() {

@@ -1,6 +1,5 @@
 package org.example.vetmais.Model.DAO;
 
-import com.mysql.cj.x.protobuf.MysqlxPrepare;
 import org.example.vetmais.Domain.Client;
 
 import java.sql.Connection;
@@ -35,7 +34,7 @@ public class DAOClient {
             Logger.getLogger(DAOClient.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-    };
+    }
 
     public boolean atualizar(Client client) throws Exception {
         String sql = "UPDATE clients SET name = ?, email = ?, telephone = ? WHERE cpf = ?";

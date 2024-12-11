@@ -11,6 +11,8 @@ module org.example.vetmais {
     requires mysql.connector.j;
     requires java.desktop;
     requires io.github.cdimascio.dotenv.java;
+    requires fontawesomefx;
+    requires de.mkammerer.argon2.nolibs;
 
     opens org.example.vetmais to javafx.fxml;
     exports org.example.vetmais;
@@ -18,6 +20,8 @@ module org.example.vetmais {
     opens org.example.vetmais.Controller to javafx.fxml;
     exports org.example.vetmais.Controller.Menu;
     opens org.example.vetmais.Controller.Menu to javafx.fxml;
+    exports org.example.vetmais.Controller.Login;
+    opens org.example.vetmais.Controller.Login to javafx.fxml;
     exports org.example.vetmais.Controller.Animais;
     opens org.example.vetmais.Controller.Animais to javafx.fxml;
     exports org.example.vetmais.Model;

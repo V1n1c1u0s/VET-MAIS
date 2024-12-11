@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -63,10 +64,10 @@ public class LoginController implements Initializable {
     private JFXButton ps_loginBtn;
 
     @FXML
-    private TextField senha_cadastro;
+    private PasswordField senha_cadastro;
 
     @FXML
-    private TextField senha_login;
+    private PasswordField senha_login;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -91,10 +92,13 @@ public class LoginController implements Initializable {
     void cadastrar(ActionEvent event) {
         try{
             User user = new User(email_cadastro.getText(), senha_cadastro.getText());
+            user.setEncryptedPassword(user.getPassword());
             daoUser.setConnection(connection);
             if(daoUser.cadastrar(user)){
                 cadastro_correto.setVisible(true);
                 cadastro_incorreto.setVisible(false);
+                email_cadastro.clear();
+                senha_cadastro.clear();
             } else {
                 cadastro_correto.setVisible(false);
                 cadastro_incorreto.setVisible(true);

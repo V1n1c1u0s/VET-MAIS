@@ -3,16 +3,14 @@ package org.example.vetmais.Controller.Consultas;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import org.example.vetmais.Domain.Animal;
 import org.example.vetmais.Domain.Consulta;
 import org.example.vetmais.Model.DAO.DAOConsulta;
 import org.example.vetmais.Model.Database.Database;
 import org.example.vetmais.Model.Database.DatabaseFactory;
 
-import java.io.IOException;
 import java.sql.Connection;
 
-public class ConsultasController {
+public class AddController {
 
     @FXML
     private TextField f1;

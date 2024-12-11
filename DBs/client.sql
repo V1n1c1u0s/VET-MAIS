@@ -28,3 +28,9 @@ CREATE TABLE Consultas (
     pet VARCHAR(100) NOT NULL,                -- Nome do pet
     proprietario VARCHAR(100) NOT NULL        -- Nome do proprietário do pet
 );
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,  -- Identificador único para o usuário
+    email VARCHAR(255) NOT NULL UNIQUE, -- E-mail do usuário (único)
+    password VARCHAR(255) NOT NULL      -- Senha criptografada do usuário
+);

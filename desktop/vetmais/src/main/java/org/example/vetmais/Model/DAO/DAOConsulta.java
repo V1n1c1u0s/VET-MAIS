@@ -1,6 +1,5 @@
 package org.example.vetmais.Model.DAO;
 
-import org.example.vetmais.Domain.Animal;
 import org.example.vetmais.Domain.Consulta;
 
 import java.sql.Connection;
@@ -21,7 +20,7 @@ public class DAOConsulta {
         this.connection = connection;
     }
 
-    public boolean cadastrar(Consulta consulta)  throws Exception {
+    public boolean cadastrar(Consulta consulta) throws Exception {
         String sql = "INSERT INTO Consultas (veterinario, data_agendada, pet, proprietario) VALUES (?,?,?,?)";
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -33,10 +32,10 @@ public class DAOConsulta {
             int rowsAffected = stmt.executeUpdate();
             return rowsAffected > 0;
         } catch (SQLException ex) {
-            Logger.getLogger(DAOClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOConsulta.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-    };
+    }
 
     public boolean atualizar(Consulta consulta) throws Exception {
         return false;
@@ -46,7 +45,8 @@ public class DAOConsulta {
         return false;
     }
 
-    public boolean buscar(Consulta consulta) throws Exception {
+    public boolean getALL(Consulta consulta) throws Exception {
         return false;
     }
+
 }

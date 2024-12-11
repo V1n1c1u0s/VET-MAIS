@@ -1,12 +1,11 @@
 package org.example.vetmais.Model.DAO;
 
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import org.example.vetmais.Domain.Animal;
 import org.example.vetmais.Domain.User;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,16 +38,23 @@ public class DAOUser {
     public boolean buscar(User user) throws Exception {
         if(user.getEmail().isEmpty() || user.getPassword().isEmpty())
             return false;
-        String sql = "SELECT * FROM Users WHERE email = ? AND password = ?";
+        String sql = "SELECT * FROM Users WHERE email = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, user.getEmail());
-            stmt.setString(2, user.getPassword());
-            var resultSet = stmt.executeQuery();
 
-            return resultSet.next(); // Retorna true se o cliente for encontrado
+            ResultSet resultSet = stmt.executeQuery();
+
+            if(resultSet.next())
+                return verifyPassword(user.getPassword(), resultSet.getString("password"));
+
+            return false;
         } catch (SQLException ex) {
             Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
+    }
+    private boolean verifyPassword(String password, String hash) {
+        Argon2 argon2 = Argon2Factory.create();
+        return argon2.verify(hash, password.toCharArray());
     }
 }

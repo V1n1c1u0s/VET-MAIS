@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.vetmais.Controller.Consultas.ConsultasController">
    <children>
       <Label layoutX="64.0" layoutY="30.0" text="Pesquise consultas:" />
-      <TextField fx:id="searchBar" layoutX="173.0" layoutY="26.0" prefHeight="26.0" prefWidth="297.0" />
-      <JFXButton fx:id="addButton" alignment="CENTER" layoutX="484.0" layoutY="26.0" text="Add">
+      <JFXButton fx:id="addButton" alignment="CENTER" layoutX="484.0" layoutY="26.0" onMouseClicked="#addConsulta" text="Add">
          <graphic>
             <FontAwesomeIcon glyphName="PLUS" />
          </graphic>
@@ -26,5 +24,6 @@
             <TableColumn fx:id="dateColumn" prefWidth="60.00006103515625" text="DATA" />
         </columns>
       </TableView>
+      <TextField fx:id="searchBar" layoutX="170.0" layoutY="26.0" prefHeight="26.0" prefWidth="310.0" />
    </children>
 </AnchorPane>
