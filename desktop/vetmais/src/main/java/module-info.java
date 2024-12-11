@@ -1,19 +1,17 @@
 module org.example.vetmais {
     requires javafx.fxml;
-
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
-    requires com.jfoenix;
     requires java.sql;
     requires jdk.jdi;
     requires mysql.connector.j;
     requires java.desktop;
     requires io.github.cdimascio.dotenv.java;
     requires fontawesomefx;
+    requires com.jfoenix;
     requires de.mkammerer.argon2.nolibs;
-
     opens org.example.vetmais to javafx.fxml;
     exports org.example.vetmais;
     exports org.example.vetmais.Controller;

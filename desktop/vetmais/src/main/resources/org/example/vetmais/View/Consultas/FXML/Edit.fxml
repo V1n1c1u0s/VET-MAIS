@@ -8,16 +8,15 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.example.vetmais.Controller.Animais.AnimaisController">
-    <TextField fx:id="f1" layoutX="216.0" layoutY="119.0" promptText="Nome" styleClass="i"
+            fx:controller="org.example.vetmais.Controller.Consultas.EditController">
+    <TextField fx:id="f3" layoutX="216.0" layoutY="187.0" promptText="Cliente" styleClass="i"
                stylesheets="@../CSS/style.css"/>
     <TextField fx:id="f4" layoutX="216.0" layoutY="220.0" promptText="Proprietário"/>
-    <TextField fx:id="f3" layoutX="216.0" layoutY="187.0" promptText="Raça"/>
-    <JFXButton layoutX="250.0" layoutY="282.0" onAction="#saveAnimal" text="Cadastrar">
+    <TextField fx:id="f1" layoutX="216.0" layoutY="118.0" promptText="Veterinário"/>
+    <JFXButton layoutX="250.0" layoutY="282.0" onAction="#updateConsulta" text="Editar">
         <graphic>
             <FontAwesomeIcon glyphName="PAW"/>
         </graphic>
     </JFXButton>
-    <DatePicker fx:id="f2" layoutX="216.0" layoutY="153.0" prefHeight="26.0" prefWidth="150.0"
-                promptText="Data de Nascimento"/>
+    <DatePicker fx:id="f2" layoutX="216.0" layoutY="153.0" prefHeight="26.0" prefWidth="150.0" promptText="Consulta"/>
 </AnchorPane>

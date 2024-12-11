@@ -10,7 +10,7 @@ import org.example.vetmais.Model.Database.DatabaseFactory;
 
 import java.sql.Connection;
 
-public class AddController {
+public class EditController {
 
     @FXML
     private TextField f1;
@@ -34,13 +34,15 @@ public class AddController {
 
     DAOConsulta daoConsulta = new DAOConsulta();
 
+    public void setConsulta(Consulta temp) {
+        f1.setText(temp.getNamevet());f2.setValue(temp.getData_agendada());f3.setText(temp.getPet());f4.setText(temp.getCpf_proprietario());
+    }
 
     @FXML
-    private void saveConsulta() throws Exception {
+    private void updateConsulta() throws Exception {
         Consulta consulta = new Consulta(f1.getText(), f2.getValue(), f3.getText(), f4.getText());
         daoConsulta.setConnection(connection);
-        daoConsulta.cadastrar(consulta);
-        f1.clear();f2.setValue(null);f3.clear();f4.clear();
+        daoConsulta.atualizar(consulta);
     }
 
 }

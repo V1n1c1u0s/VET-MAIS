@@ -11,13 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import org.example.vetmais.Domain.User;
-import org.example.vetmais.Model.DAO.DAOConsulta;
 import org.example.vetmais.Model.DAO.DAOUser;
 import org.example.vetmais.Model.Database.Database;
 import org.example.vetmais.Model.Database.DatabaseFactory;
 import org.example.vetmais.Model.SwitchScene;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.ResourceBundle;
@@ -25,7 +23,7 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable {
 
     @FXML
-    private AnchorPane main;
+    private AnchorPane mainPane;
 
     @FXML
     private JFXButton cadastroBtn;
@@ -89,7 +87,7 @@ public class LoginController implements Initializable {
     DAOUser daoUser = new DAOUser();
 
     @FXML
-    void cadastrar(ActionEvent event) {
+    private void cadastrar(ActionEvent event) {
         try{
             User user = new User(email_cadastro.getText(), senha_cadastro.getText());
             user.setEncryptedPassword(user.getPassword());
@@ -111,12 +109,12 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    void login(ActionEvent event) throws IOException {
+    private void login(ActionEvent event) {
         try{
             User user = new User(email_login.getText(), senha_login.getText());
             daoUser.setConnection(connection);
             if(daoUser.buscar(user))
-                new SwitchScene(main, "View/menu/fxml/tst.fxml");
+                new SwitchScene(mainPane, "View/menu/fxml/tst.fxml");
             else
                 login_incorreto.setVisible(true);
 
@@ -126,7 +124,7 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    void psCadastro(ActionEvent event) {
+    private void psCadastro(ActionEvent event) {
         TranslateTransition slide = new TranslateTransition();
         slide.setDuration(Duration.seconds(0.35));
         slide.setNode(panelSlide);
