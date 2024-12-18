@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.vetmais.Controller.Clientes.EditController">
+    <TextField fx:id="f1" layoutX="216.0" layoutY="112.0" promptText="Cliente" styleClass="i" stylesheets="@../CSS/style.css" />
+    <TextField fx:id="f2" layoutX="216.0" layoutY="150.0" promptText="Proprietário" />
+    <TextField fx:id="f3" layoutX="216.0" layoutY="187.0" promptText="E-mail" />
+    <TextField fx:id="f4" layoutX="216.0" layoutY="226.0" promptText="Telefone" />
+    <JFXButton layoutX="250.0" layoutY="282.0" onAction="#updateCliente" text="Editar">
+        <graphic>
+            <FontAwesomeIcon glyphName="PAW" />
+        </graphic>
+    </JFXButton>
+</AnchorPane>

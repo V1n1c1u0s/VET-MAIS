@@ -44,5 +44,4 @@ public class EditController {
         daoConsulta.setConnection(connection);
         daoConsulta.atualizar(consulta);
     }
-
 }

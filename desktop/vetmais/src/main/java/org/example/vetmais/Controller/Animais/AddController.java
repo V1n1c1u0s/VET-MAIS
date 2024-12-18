@@ -1,17 +1,14 @@
 package org.example.vetmais.Controller.Animais;
-import com.jfoenix.controls.JFXButton;
 import java.sql.Connection;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.example.vetmais.Domain.Animal;
-import org.example.vetmais.Domain.Client;
 import org.example.vetmais.Model.DAO.DAOAnimal;
 import org.example.vetmais.Model.Database.Database;
 import org.example.vetmais.Model.Database.DatabaseFactory;
 
-public class AnimaisController{
+public class AddController {
 
     @FXML
     private TextField f1;

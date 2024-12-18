@@ -1,7 +1,5 @@
 package org.example.vetmais.Controller.Clientes;
 
-import com.jfoenix.controls.JFXButton;
-import io.github.cdimascio.dotenv.Dotenv;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import org.example.vetmais.Domain.Client;
@@ -11,7 +9,7 @@ import org.example.vetmais.Model.Database.DatabaseFactory;
 
 import java.sql.Connection;
 
-public class ClientesController{
+public class AddController {
 
     @FXML
     private TextField t1 = new TextField();

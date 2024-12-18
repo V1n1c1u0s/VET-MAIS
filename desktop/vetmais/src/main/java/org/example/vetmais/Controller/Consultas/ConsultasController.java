@@ -96,8 +96,13 @@ public class ConsultasController implements Initializable {
         stage.setTitle("Consultas");
         stage.setScene(scene);
         stage.show();
-        refresh();
-        load();
+        stage.setOnCloseRequest(ev -> {
+            try{
+                refresh();
+            }catch(SQLException e){
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, e);
+            }
+        });
     }
 
     void load() throws SQLException {
@@ -160,6 +165,13 @@ public class ConsultasController implements Initializable {
                                 Stage stage = new Stage();
                                 stage.setScene(new Scene(root));
                                 stage.show();
+                                stage.setOnCloseRequest(ev -> {
+                                    try{
+                                        refresh();
+                                    }catch(SQLException e){
+                                        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, e);
+                                    }
+                                });
                             } catch (IOException ex) {
                                 Logger.getLogger(ConsultasController.class.getName()).log(Level.SEVERE, null, ex);
                             }
