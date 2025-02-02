@@ -1,0 +1,24 @@
+.bodybg{
+    -fx-background-image: url('test2.jpg');
+    -fx-background-size: 100% 100%;
+}
+
+.logobg{
+    -fx-background-image: url('alce7.png');
+    -fx-background-size: 100% 100%;
+}
+
+.input-box{
+    -fx-background-color: #211080;
+    -fx-border-color: #0ef;
+    -fx-border-width: 2px;
+    -fx-border-radius: 9px;
+    -fx-min-height: 35px;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.btn{
+    -fx-text-fill: white;
+    -fx-fill: white;
+}

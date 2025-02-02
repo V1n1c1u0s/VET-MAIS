@@ -2,7 +2,6 @@ package org.example.vetmais.Model.DAO;
 
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
-import org.example.vetmais.Domain.Animal;
 import org.example.vetmais.Domain.User;
 
 import java.sql.*;
@@ -21,7 +20,7 @@ public class DAOUser {
     }
 
     public boolean cadastrar(User user) throws Exception {
-        String sql = "INSERT INTO Users (email, password) VALUES (?,?)";
+        String sql = "INSERT INTO users (email, password) VALUES (?,?)";
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, user.getEmail());
@@ -38,7 +37,7 @@ public class DAOUser {
     public boolean buscar(User user) throws Exception {
         if(user.getEmail().isEmpty() || user.getPassword().isEmpty())
             return false;
-        String sql = "SELECT * FROM Users WHERE email = ?";
+        String sql = "SELECT * FROM users WHERE email = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, user.getEmail());
 
