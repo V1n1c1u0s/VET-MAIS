@@ -16,9 +16,44 @@
     -fx-min-height: 35px;
     -fx-background-radius: 12px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-text-fill: white;
+}
+
+.input-box-2{
+    -fx-background-color: yellow;
+    -fx-border-color: red;
+    -fx-border-width: 2px;
+    -fx-border-radius: 9px;
+    -fx-min-height: 35px;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-padding: 10px;
+    -fx-text-fill: red;
+}
+
+.input-box-3{
+    -fx-background-color: #211080;
+    -fx-border-color: #0ef;
+    -fx-border-width: 2px;
+    -fx-border-radius: 9px;
+    -fx-min-height: 35px;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-padding: 10px;
+    -fx-text-fill: white;
 }
 
 .btn{
     -fx-text-fill: white;
     -fx-fill: white;
+}
+
+@font-face {
+    src: url('Fonts/Darty Zhedant.ttf');
+}
+.twt{
+    -fx-font-family: 'Darty Zhedant';
+    -fx-fill: #093e4a;
+    -fx-font-size: 50px;
+    -fx-effect: dropshadow(three-pass-box, rgba(255,255,255,0.8), 10, 0, 0, 0);
 }

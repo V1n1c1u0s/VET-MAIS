@@ -8,14 +8,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.vetmais.Controller.Login.LoginController">
     <HBox prefHeight="600.0" prefWidth="800.0">
         <AnchorPane prefHeight="600.0" prefWidth="400.0">
-            <Label layoutX="169.0" layoutY="246.0" text="Fazer Login" />
-            <TextField fx:id="email_login" layoutX="99.0" layoutY="274.0" prefHeight="26.0" prefWidth="211.0" promptText="E-mail" styleClass="input-box" stylesheets="@../CSS/login.css" />
-            <PasswordField fx:id="senha_login" layoutX="99.0" layoutY="327.0" prefHeight="26.0" prefWidth="211.0" promptText="Senha" styleClass="input-box" stylesheets="@../CSS/login.css" />
-            <JFXButton fx:id="entrarBtn" layoutX="168.0" layoutY="384.0" onAction="#login" stylesheets="@../CSS/login.css" text="Entrar">
+            <TextField fx:id="email_login" layoutX="86.0" layoutY="290.0" prefHeight="42.0" prefWidth="227.0" promptText="E-mail" styleClass="input-box" stylesheets="@../CSS/login.css" />
+            <PasswordField fx:id="senha_login" layoutX="87.0" layoutY="347.0" prefHeight="42.0" prefWidth="227.0" promptText="Senha" styleClass="input-box" stylesheets="@../CSS/login.css" />
+            <JFXButton fx:id="entrarBtn" layoutX="151.0" layoutY="401.0" minHeight="34.0" onAction="#login" prefHeight="42.0" prefWidth="98.0" stylesheets="@../CSS/login.css" text="Entrar">
                 <graphic>
                     <FontAwesomeIcon glyphName="PAW" styleClass="btn" />
                 </graphic>
@@ -24,16 +24,16 @@
                <String fx:value="btn" />
             </styleClass>
             </JFXButton>
-            <Label fx:id="login_incorreto" layoutX="159.0" layoutY="445.0" text="Login Incorreto" />
+            <Label fx:id="login_incorreto" layoutX="146.0" layoutY="503.0" prefHeight="42.0" prefWidth="106.0" styleClass="input-box-2" stylesheets="@../CSS/login.css" text="Login Incorreto" />
          <AnchorPane layoutX="60.0" layoutY="56.0" prefHeight="163.0" prefWidth="280.0" styleClass="logobg" stylesheets="@../CSS/login.css" />
         </AnchorPane>
         <AnchorPane prefHeight="600.0" prefWidth="400.0">
-            <Label layoutX="170.0" layoutY="196.0" text="Criar Conta" />
-            <TextField fx:id="email_cadastro" layoutX="125.0" layoutY="274.0" promptText="E-mail" styleClass="input-box" stylesheets="@../CSS/login.css" />
-            <Label fx:id="cadastro_incorreto" layoutX="130.0" layoutY="445.0" text="Não foi Possível Cadastrar" />
-            <Label fx:id="cadastro_correto" layoutX="148.0" layoutY="445.0" text="Usuário Cadastrado" />
-            <PasswordField fx:id="senha_cadastro" layoutX="125.0" layoutY="327.0" promptText="Senha" styleClass="input-box" stylesheets="@../CSS/login.css" />
-            <JFXButton fx:id="cadastroBtn" layoutX="159.0" layoutY="385.0" onAction="#cadastrar" stylesheets="@../CSS/login.css" text="Cadastrar">
+            <Label layoutX="117.0" layoutY="80.0" styleClass="twt" stylesheets="@../CSS/login.css" text="Cadastro" />
+            <TextField fx:id="email_cadastro" layoutX="86.0" layoutY="296.0" prefHeight="42.0" prefWidth="227.0" promptText="E-mail" styleClass="input-box" stylesheets="@../CSS/login.css" />
+            <Label fx:id="cadastro_incorreto" layoutX="119.0" layoutY="507.0" styleClass="input-box-2" stylesheets="@../CSS/login.css" text="Não foi Possível Cadastrar" />
+            <Label fx:id="cadastro_correto" layoutX="144.0" layoutY="507.0" styleClass="input-box-3" stylesheets="@../CSS/login.css" text="Usuário Cadastrado" />
+            <PasswordField fx:id="senha_cadastro" layoutX="86.0" layoutY="349.0" prefHeight="42.0" prefWidth="227.0" promptText="Senha" styleClass="input-box" stylesheets="@../CSS/login.css" />
+            <JFXButton fx:id="cadastroBtn" layoutX="159.0" layoutY="409.0" onAction="#cadastrar" prefHeight="42.0" prefWidth="98.0" stylesheets="@../CSS/login.css" text="Cadastrar">
                 <graphic>
                     <FontAwesomeIcon glyphName="PAW" styleClass="btn" />
                 </graphic>
@@ -42,20 +42,10 @@
                <String fx:value="btn" />
             </styleClass>
             </JFXButton>
+         <TextField fx:id="cpf" layoutX="86.0" layoutY="245.0" prefHeight="42.0" prefWidth="227.0" promptText="CPF/CNPJ" styleClass="input-box" stylesheets="@../CSS/login.css" />
+         <TextField fx:id="nome" layoutX="86.0" layoutY="193.0" prefHeight="42.0" prefWidth="227.0" promptText="Nome Completo" styleClass="input-box" stylesheets="@../CSS/login.css" />
             <AnchorPane fx:id="panelSlide" prefHeight="600.0" prefWidth="400.0" styleClass="bodybg" stylesheets="@../CSS/login.css">
-                <Label layoutX="168.0" layoutY="171.0" text="Bem-Vindo(a)" />
-                <JFXButton fx:id="ps_cadastroBtn" layoutX="164.0" layoutY="384.0" onAction="#psCadastro" stylesheets="@../CSS/login.css" text="Cadastrar">
-                    <graphic>
-                        <FontAwesomeIcon glyphName="PAW" />
-                    </graphic>
-               <styleClass>
-                  <String fx:value="input-box" />
-                  <String fx:value="btn" />
-               </styleClass>
-                </JFXButton>
-                <Label fx:id="label_cadastro" layoutX="156.0" layoutY="273.0" text="Faça Seu Cadastro" />
-                <Label fx:id="label_login" layoutX="174.0" layoutY="291.0" text="Fazer Login" />
-                <JFXButton fx:id="ps_loginBtn" layoutX="168.0" layoutY="384.0" onAction="#psLogin" stylesheets="@../CSS/login.css" text="Login">
+                <JFXButton fx:id="ps_cadastroBtn" layoutX="157.0" layoutY="438.0" onAction="#psCadastro" prefHeight="42.0" prefWidth="98.0" stylesheets="@../CSS/login.css" text="Cadastrar">
                     <graphic>
                         <FontAwesomeIcon glyphName="PAW" styleClass="btn" />
                     </graphic>
@@ -64,6 +54,18 @@
                   <String fx:value="btn" />
                </styleClass>
                 </JFXButton>
+                <Label fx:id="label_cadastro" layoutX="6.0" layoutY="278.0" styleClass="twt" stylesheets="@../CSS/login.css" text="Ainda não faz parte ?" />
+                <Label fx:id="label_login" layoutX="77.0" layoutY="278.0" styleClass="twt" stylesheets="@../CSS/login.css" text="Já é membro ?" />
+                <JFXButton fx:id="ps_loginBtn" layoutX="157.0" layoutY="438.0" onAction="#psLogin" prefHeight="42.0" prefWidth="98.0" stylesheets="@../CSS/login.css" text="Login">
+                    <graphic>
+                        <FontAwesomeIcon glyphName="PAW" styleClass="btn" />
+                    </graphic>
+               <styleClass>
+                  <String fx:value="input-box" />
+                  <String fx:value="btn" />
+               </styleClass>
+                </JFXButton>
+            <Text layoutX="64.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="twt" text="Bem-Vindo (a) !" wrappingWidth="286.4000000000001" />
             </AnchorPane>
         </AnchorPane>
     </HBox>
