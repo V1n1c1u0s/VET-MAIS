@@ -3,6 +3,7 @@ package org.example.vetmais.Launcher;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.vetmais.HelloApplication;
 
 public class Launcher extends Application {
 
@@ -12,7 +13,7 @@ public class Launcher extends Application {
     @Override
     public void init() throws Exception {
         InitPreloader initL = new InitPreloader();
-        //initL.checkFunctions();
+        initL.checkFunctions();
     }
 
     @Override
@@ -23,8 +24,8 @@ public class Launcher extends Application {
     public static void main(String[] args) {
         //launch();
         //Launcher.launch();
-        System.setProperty("javafx.preloader", LauncherPreloader.class.getCanonicalName());
-        launch(args);
+        //System.setProperty("javafx.preloader", LauncherPreloader.class.getCanonicalName());
+        //launch(args);
         //launch(LauncherPreloader.class, args);
         //LauncherImpl.launchApplication(Launcher.class, LauncherPreloader.class, args);
     }

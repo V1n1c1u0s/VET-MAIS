@@ -28,7 +28,7 @@ public class InitPreloader implements Initializable {
         progresso.setProgress(0.05);
     }
 
-    /*public String checkFunctions() throws InterruptedException {
+    public String checkFunctions() throws InterruptedException {
 
         final String[] message = {""};
 
@@ -65,7 +65,7 @@ public class InitPreloader implements Initializable {
 
 
         return message[0];
-    }*/
+    }
     public void handleProgressNotification(Preloader.ProgressNotification info) {
         if (progresso != null) {
             progresso.setProgress(info.getProgress());

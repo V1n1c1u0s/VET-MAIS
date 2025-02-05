@@ -3,6 +3,7 @@ package org.example.vetmais.Controller.Clientes;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -71,11 +72,14 @@ public class ClientesController implements Initializable {
     Client client = null;
 
     ObservableList<Client> clientList = FXCollections.observableArrayList();
+    FilteredList<Client> filteredList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         //TODO
         try {
+            refresh();
+            filteredList = new FilteredList<>(clientList, p -> true);
             load();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -93,6 +97,7 @@ public class ClientesController implements Initializable {
         stage.setOnCloseRequest(ev -> {
             try{
                 refresh();
+                load();
             }catch(SQLException e){
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, e);
             }
@@ -106,7 +111,23 @@ public class ClientesController implements Initializable {
         mailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("telephone"));
 
-        //
+        searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(client -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true; // If search bar is empty, show all
+                }
+
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                return client.getEmail().toLowerCase().contains(lowerCaseFilter) ||
+                        client.getCpf().toLowerCase().contains(lowerCaseFilter) ||
+                        client.getName().toLowerCase().contains(lowerCaseFilter) ||
+                        client.getTelephone().toLowerCase().contains(lowerCaseFilter);
+            });
+        });
+
+        clienteTable.setItems(filteredList);
+
         Callback<TableColumn<Client, String>, TableCell<Client, String>> cellFactory = (TableColumn<Client, String> param) -> {
             final TableCell<Client, String> cell = new TableCell<>() {
                 @Override
@@ -144,6 +165,7 @@ public class ClientesController implements Initializable {
                                 preparedStatement.setString(1, client.getCpf());
                                 preparedStatement.execute();
                                 refresh();
+                                load();
                             }
                             catch (SQLException ex) {
                                 Logger.getLogger(ClientesController.class.getName()).log(Level.SEVERE, null, ex);
@@ -162,6 +184,7 @@ public class ClientesController implements Initializable {
                                 stage.setOnCloseRequest(ev -> {
                                     try{
                                         refresh();
+                                        load();
                                     }catch(SQLException e){
                                         Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, e);
                                     }
@@ -184,7 +207,6 @@ public class ClientesController implements Initializable {
             return cell;
         };
         editColumn.setCellFactory(cellFactory);
-        clienteTable.setItems(clientList);
     }
 
     private void refresh() throws SQLException {

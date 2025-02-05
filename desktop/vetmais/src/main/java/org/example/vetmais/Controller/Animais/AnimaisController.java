@@ -3,6 +3,7 @@ package org.example.vetmais.Controller.Animais;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.example.vetmais.Domain.Animal;
+import org.example.vetmais.Domain.Consulta;
 import org.example.vetmais.HelloApplication;
 import org.example.vetmais.Model.Database.Database;
 import org.example.vetmais.Model.Database.DatabaseFactory;
@@ -69,11 +71,14 @@ public class AnimaisController implements Initializable {
     Animal animal = null;
 
     ObservableList<Animal> animaisList = FXCollections.observableArrayList();
+    FilteredList<Animal> filteredList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         //TODO
         try {
+            refresh();
+            filteredList = new FilteredList<>(animaisList, p -> true);
             load();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -91,6 +96,7 @@ public class AnimaisController implements Initializable {
         stage.setOnCloseRequest(ev -> {
             try{
                 refresh();
+                load();
             }catch(SQLException e){
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, e);
             }
@@ -104,7 +110,23 @@ public class AnimaisController implements Initializable {
         breedColumn.setCellValueFactory(new PropertyValueFactory<>("breed"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("birth_date"));
 
-        //
+        searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(animal -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true; // If search bar is empty, show all
+                }
+
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                return animal.getBreed().toLowerCase().contains(lowerCaseFilter) ||
+                        animal.getCpf_proprietario().toLowerCase().contains(lowerCaseFilter) ||
+                        animal.getBirth_date().toString().contains(lowerCaseFilter) ||
+                        animal.getName().toLowerCase().contains(lowerCaseFilter);
+            });
+        });
+
+        animalTable.setItems(filteredList);
+
         Callback<TableColumn<Animal, String>, TableCell<Animal, String>> cellFactory = (TableColumn<Animal, String> param) -> {
             final TableCell<Animal, String> cell = new TableCell<>() {
                 @Override
@@ -128,6 +150,7 @@ public class AnimaisController implements Initializable {
                                 preparedStatement.setString(1, animal.getCpf_proprietario());
                                 preparedStatement.execute();
                                 refresh();
+                                load();
                             }
                             catch (SQLException ex) {
                                 Logger.getLogger(AnimaisController.class.getName()).log(Level.SEVERE, null, ex);
@@ -157,6 +180,7 @@ public class AnimaisController implements Initializable {
                                         } else {
                                             try {
                                                 refresh();
+                                                load();
                                             } catch (SQLException e) {
                                                 throw new RuntimeException(e);
                                             }
@@ -181,7 +205,6 @@ public class AnimaisController implements Initializable {
             return cell;
         };
         editColumn.setCellFactory(cellFactory);
-        animalTable.setItems(animaisList);
     }
 
     private void refresh() throws SQLException {

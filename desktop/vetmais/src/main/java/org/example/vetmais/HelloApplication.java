@@ -26,9 +26,8 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        System.setProperty("javafx.preloader", LauncherPreloader.class.getCanonicalName());
+        //System.setProperty("javafx.preloader", LauncherPreloader.class.getCanonicalName());
         launch(args);
-//        launch(args);
         //HelloApplication.launch(LauncherPreloader.class, args);
     }
 }
