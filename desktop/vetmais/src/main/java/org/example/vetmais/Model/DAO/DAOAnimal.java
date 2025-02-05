@@ -22,7 +22,7 @@ public class DAOAnimal {
     }
 
     public boolean cadastrar(Animal animal) throws Exception {
-        String sql = "INSERT INTO Animals (name, birth_date, breed, cpf_proprietario) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO animals (name, birth_date, breed, cpf_proprietario) VALUES (?,?,?,?)";
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, animal.getName());
@@ -39,7 +39,7 @@ public class DAOAnimal {
     }
 
     public boolean atualizar(Animal animal) throws Exception {
-        String sql = "UPDATE Animals SET name = ?, birth_date = ?, breed = ? WHERE cpf_proprietario = ?";
+        String sql = "UPDATE animals SET name = ?, birth_date = ?, breed = ? WHERE cpf_proprietario = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, animal.getName());
@@ -56,7 +56,7 @@ public class DAOAnimal {
     }
 
     public boolean deletar(Animal animal) throws Exception {
-        String sql = "DELETE FROM Animals WHERE cpf_proprietario = ?";
+        String sql = "DELETE FROM animals WHERE cpf_proprietario = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, animal.getCpf_proprietario());
@@ -70,7 +70,7 @@ public class DAOAnimal {
     }
 
     public boolean buscar(Animal animal) throws Exception {
-        String sql = "SELECT * FROM Animals WHERE cpf_proprietario = ?";
+        String sql = "SELECT * FROM animals WHERE cpf_proprietario = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, animal.getCpf_proprietario());

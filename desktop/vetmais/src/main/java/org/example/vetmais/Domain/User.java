@@ -2,6 +2,7 @@ package org.example.vetmais.Domain;
 
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
+import org.example.vetmais.Model.Validacao.ValidarEmail;
 
 public class User {
     private String email;
@@ -31,7 +32,10 @@ public class User {
     }
 
     public boolean isValidEmail() {
-        return email != null && email.contains("@");
+        //return email != null && email.contains("@");
+        ValidarEmail validarEmail = new ValidarEmail();
+        String email = validarEmail.ValidarEmail(getEmail());
+        return email.contains("Válido");
     }
 
     public void setEncryptedPassword(String password) {

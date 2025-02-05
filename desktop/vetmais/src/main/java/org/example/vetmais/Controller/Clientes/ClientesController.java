@@ -139,7 +139,7 @@ public class ClientesController implements Initializable {
                         deleteButton.setOnMouseClicked((MouseEvent event) -> {
                             try {
                                 client = clienteTable.getSelectionModel().getSelectedItem();
-                                String query = "DELETE FROM Clients WHERE cpf = ?";
+                                String query = "DELETE FROM clients WHERE cpf = ?";
                                 PreparedStatement preparedStatement = connection.prepareStatement(query);
                                 preparedStatement.setString(1, client.getCpf());
                                 preparedStatement.execute();

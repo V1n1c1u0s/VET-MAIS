@@ -20,6 +20,9 @@ public class DAOUser {
     }
 
     public boolean cadastrar(User user) throws Exception {
+        if(user.getEmail().isEmpty() || user.getPassword().isEmpty() || !user.isValidEmail()) {
+            return false;
+        }
         String sql = "INSERT INTO users (email, password) VALUES (?,?)";
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);

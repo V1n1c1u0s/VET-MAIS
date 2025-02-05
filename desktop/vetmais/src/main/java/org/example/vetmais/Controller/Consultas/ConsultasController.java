@@ -6,6 +6,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcons;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -77,11 +78,14 @@ public class ConsultasController implements Initializable {
     Consulta consulta = null;
 
     ObservableList<Consulta> consultaList = FXCollections.observableArrayList();
+    FilteredList<Consulta> filteredList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         //TODO
         try {
+            refresh();
+            filteredList = new FilteredList<>(consultaList, p -> true);
             load();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -99,6 +103,7 @@ public class ConsultasController implements Initializable {
         stage.setOnCloseRequest(ev -> {
             try{
                 refresh();
+                load();
             }catch(SQLException e){
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, e);
             }
@@ -111,8 +116,27 @@ public class ConsultasController implements Initializable {
         ownerColumn.setCellValueFactory(new PropertyValueFactory<>("cpf_proprietario"));
         vetColumn.setCellValueFactory(new PropertyValueFactory<>("namevet"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("data_agendada"));
+        //filteredList.setPredicate(filteredList.getPredicate());
+        // Create a FilteredList wrapping consultaList
+        //filteredList = new FilteredList<>(consultaList, p -> true); // Initially no filtering
 
-        //
+        // Add a listener to the search bar for filtering
+        searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(consulta -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true; // If search bar is empty, show all
+                }
+
+                String lowerCaseFilter = newValue.toLowerCase();
+                // Filter based on 'pet', 'cpf_proprietario', or 'namevet'
+                return consulta.getPet().toLowerCase().contains(lowerCaseFilter) ||
+                        consulta.getCpf_proprietario().toLowerCase().contains(lowerCaseFilter) ||
+                        consulta.getNamevet().toLowerCase().contains(lowerCaseFilter);
+            });
+        });
+
+        consultaTable.setItems(filteredList);
+
         Callback<TableColumn<Consulta, String>, TableCell<Consulta, String>> cellFactory = (TableColumn<Consulta, String> param) -> {
             final TableCell<Consulta, String> cell = new TableCell<>() {
                 @Override
@@ -150,6 +174,7 @@ public class ConsultasController implements Initializable {
                                 preparedStatement.setString(1, consulta.getCpf_proprietario());
                                 preparedStatement.execute();
                                 refresh();
+                                load();
                             }
                             catch (SQLException ex) {
                                 Logger.getLogger(ConsultasController.class.getName()).log(Level.SEVERE, null, ex);
@@ -168,6 +193,7 @@ public class ConsultasController implements Initializable {
                                 stage.setOnCloseRequest(ev -> {
                                     try{
                                         refresh();
+                                        load();
                                     }catch(SQLException e){
                                         Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, e);
                                     }
@@ -190,13 +216,13 @@ public class ConsultasController implements Initializable {
             return cell;
         };
         editColumn.setCellFactory(cellFactory);
-        consultaTable.setItems(consultaList);
     }
+
 
     private void refresh() throws SQLException {
         try{
             consultaList.clear();
-            String query = "select * from consultas";
+            String query = "select * from Consultas";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -208,6 +234,7 @@ public class ConsultasController implements Initializable {
                         resultSet.getString("proprietario")
                 ));
                 consultaTable.setItems(consultaList);
+                //filteredList.setPredicate(filteredList.getPredicate());
             }
         } catch (SQLException ex) {
             Logger.getLogger(ConsultasController.class.getName()).log(Level.SEVERE, null, ex);

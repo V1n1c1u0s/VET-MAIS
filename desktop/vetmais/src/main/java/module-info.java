@@ -12,14 +12,15 @@ module org.example.vetmais {
     requires fontawesomefx;
     requires com.jfoenix;
     requires de.mkammerer.argon2.nolibs;
-    opens org.example.vetmais to javafx.fxml;
+    requires javafx.graphics;
+    opens org.example.vetmais to javafx.fxml, javafx.graphics;
     exports org.example.vetmais;
-    exports org.example.vetmais.Controller;
-    opens org.example.vetmais.Controller to javafx.fxml;
     exports org.example.vetmais.Controller.Menu;
     opens org.example.vetmais.Controller.Menu to javafx.fxml;
     exports org.example.vetmais.Controller.Login;
     opens org.example.vetmais.Controller.Login to javafx.fxml;
+    exports org.example.vetmais.Controller.Splash;
+    opens org.example.vetmais.Controller.Splash to javafx.fxml, javafx.graphics;
     exports org.example.vetmais.Controller.Animais;
     opens org.example.vetmais.Controller.Animais to javafx.fxml;
     exports org.example.vetmais.Model;
@@ -34,4 +35,7 @@ module org.example.vetmais {
     opens org.example.vetmais.Model.DAO to javafx.fxml;
     exports org.example.vetmais.Model.Database;
     opens org.example.vetmais.Model.Database to javafx.fxml;
+    exports org.example.vetmais.Launcher;
+    opens org.example.vetmais.Launcher to javafx.fxml, javafx.graphics;
+
 }

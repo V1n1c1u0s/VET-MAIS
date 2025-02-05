@@ -123,7 +123,7 @@ public class AnimaisController implements Initializable {
                         deleteButton.setOnMouseClicked((MouseEvent event) -> {
                             try {
                                 animal = animalTable.getSelectionModel().getSelectedItem();
-                                String query = "DELETE FROM Animals WHERE cpf_proprietario = ?";
+                                String query = "DELETE FROM animals WHERE cpf_proprietario = ?";
                                 PreparedStatement preparedStatement = connection.prepareStatement(query);
                                 preparedStatement.setString(1, animal.getCpf_proprietario());
                                 preparedStatement.execute();
@@ -187,7 +187,7 @@ public class AnimaisController implements Initializable {
     private void refresh() throws SQLException {
         try{
             animaisList.clear();
-            String query = "select * from Animals";
+            String query = "select * from animals";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
