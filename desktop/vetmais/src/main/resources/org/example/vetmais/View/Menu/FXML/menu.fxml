@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.vetmais.Controller.Menu.MenuController">
+   <stylesheets>
+      <URL value="@../CSS/style.css" />
+   </stylesheets>
+   <BorderPane prefHeight="600.0" prefWidth="800.0">
+      <left>
+         <AnchorPane fx:id="paneslide" prefHeight="600.0" prefWidth="203.0" style="-fx-background-color: #211080;" BorderPane.alignment="CENTER">
+            <VBox layoutY="127.0" prefHeight="430.0" prefWidth="203.0">
+               <JFXButton onMouseClicked="#pagecli" prefHeight="54.0" prefWidth="203.0" styleClass="btn" stylesheets="@../CSS/menu.css" text="   Clientes">
+                  <graphic>
+                     <FontAwesomeIcon glyphName="USERS" size="1.2em" styleClass="btn" />
+                  </graphic>
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </JFXButton>
+               <JFXButton onMouseClicked="#pageani" prefHeight="54.0" prefWidth="203.0" styleClass="btn" stylesheets="@../CSS/menu.css" text="   Animais">
+                  <graphic>
+                     <FontAwesomeIcon glyphName="PAW" size="1.2em" styleClass="btn" />
+                  </graphic>
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </JFXButton>
+               <JFXButton onMouseClicked="#pagecons" prefHeight="54.0" prefWidth="203.0" styleClass="btn" stylesheets="@../CSS/menu.css" text="   Consultas">
+                  <graphic>
+                     <FontAwesomeIcon glyphName="CALENDAR" size="1.2em" styleClass="btn" />
+                  </graphic>
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </JFXButton>
+               <JFXButton prefHeight="54.0" prefWidth="203.0" styleClass="btn" stylesheets="@../CSS/menu.css" text="   Relatórios">
+                  <graphic>
+                     <FontAwesomeIcon glyphName="CLIPBOARD" size="1.2em" styleClass="btn" />
+                  </graphic>
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </JFXButton>
+               <JFXButton prefHeight="54.0" prefWidth="203.0" styleClass="btn" stylesheets="@../CSS/menu.css" text="   Estoque">
+                  <graphic>
+                     <FontAwesomeIcon glyphName="BRIEFCASE" size="1.2em" styleClass="btn" />
+                  </graphic>
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </JFXButton>
+               <JFXButton prefHeight="54.0" prefWidth="203.0" stylesheets="@../CSS/menu.css" text="   Contato">
+                  <graphic>
+                     <FontAwesomeIcon glyphName="PHONE" size="1.2em" styleClass="btn" />
+                  </graphic>
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+                  <styleClass>
+                     <String fx:value="p" />
+                     <String fx:value="btn" />
+                  </styleClass>
+               </JFXButton>
+            </VBox>
+         </AnchorPane>
+      </left>
+      <center>
+         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+               <AnchorPane prefHeight="42.0" prefWidth="597.0">
+                  <JFXButton layoutX="54.0" layoutY="-1.0" prefHeight="42.0" prefWidth="107.0" styleClass="p" stylesheets="@../CSS/style.css" text="Pagamentos">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="DOLLAR" size="1.2em" text="" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton layoutX="253.0" layoutY="1.0" prefHeight="39.0" prefWidth="107.0" styleClass="d" stylesheets="@../CSS/style.css" text="Dashboard">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="DASHBOARD" size="1.2em" text="" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton layoutX="452.0" prefHeight="39.0" prefWidth="107.0" styleClass="r" stylesheets="@../CSS/style.css" text="Mensagem">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="ENVELOPE_ALT" size="1.2em" />
+                     </graphic>
+                  </JFXButton>
+               </AnchorPane>
+               <AnchorPane fx:id="content" layoutX="-1.0" layoutY="52.0" prefHeight="548.0" prefWidth="599.0" />
+            </children></AnchorPane>
+      </center>
+   </BorderPane>
+   <JFXButton fx:id="bar2" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#run2" prefHeight="43.0" prefWidth="38.0" styleClass="btn" stylesheets="@../CSS/menu.css">
+      <graphic>
+         <FontAwesomeIcon glyphName="CHEVRON_LEFT" size="1.2em" styleClass="btn" />
+      </graphic>
+   </JFXButton>
+   <JFXButton fx:id="bar1" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#run1" prefHeight="43.0" prefWidth="38.0" styleClass="btn" stylesheets="@../CSS/menu.css">
+      <graphic>
+         <FontAwesomeIcon glyphName="BARS" size="1.2em" styleClass="btn" text="" />
+      </graphic>
+   </JFXButton>
+</AnchorPane>

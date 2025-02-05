@@ -2,3 +2,82 @@
     --fxbackground-color: transparent;
     -fx-border-color: 1px solid #383535;
 }
+
+/*
+AnchorPane {
+    padding: 20px;
+    spacing: 15px;
+    -fx-background-color: #fafafa;
+}
+
+#searchBar {
+    -fx-pref-width: 250px;
+    -fx-font-size: 16px;
+    -fx-background-color: #ffffff;
+    -fx-background-insets: 0;
+    -fx-border-radius: 25px;
+    -fx-border-color: #ccc;
+    -fx-padding: 8px 15px;
+    -fx-prompt-text-fill: #aaa;
+    -fx-text-fill: #333;
+    -fx-effect: innershadow(gaussian, #ddd, 5, 0.5, 0, 0);
+}
+
+#searchBar:focused {
+    -fx-border-color: #4e92c3;
+    -fx-background-color: #f3f8fc;
+}
+
+#animalTable {
+    -fx-background-color: #fff;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1px;
+    -fx-border-color: #ddd;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+    -fx-selection-bar: #4e92c3;  /* Cor de destaque da linha selecionada *
+    -fx-effect: innershadow(gaussian, #aaa, 5, 0.5, 0, 0); /* Efeito de sombra *
+}
+
+/* Style the TableColumns *
+#nameColumn, #cpfColumn, #dateColumn, #breedColumn {
+    -fx-cell-text-fill: #444;  /* Text color *
+    -fx-alignment: center-left;
+    -fx-padding: 5px;
+}
+
+/* Style the TableView header *
+#animalTable .column-header {
+    -fx-background-color: #4e92c3;
+    -fx-text-fill: #fff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-border-radius: 8px 8px 0 0;
+}
+
+#animalTable .table-column-cell {
+    -fx-padding: 8px 10px;
+    -fx-alignment: center-left;
+}
+/* Add some hover effects for rows *
+#animalTable .table-row-cell:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+#animalTable .table-row-cell:selected {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Estilo da barra de rolagem *
+.scroll-bar {
+    -fx-background-color: #f0f0f0;
+    -fx-background-insets: 0;
+    -fx-border-radius: 5px;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #4e92c3;
+    -fx-background-insets: 0;
+    -fx-border-radius: 5px;
+}*/

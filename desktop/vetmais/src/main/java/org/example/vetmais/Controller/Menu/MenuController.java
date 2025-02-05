@@ -30,7 +30,7 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        paneslide.setTranslateX(-200);
+        paneslide.setTranslateX(-165);
         bar2.setVisible(false);
         bar1.setVisible(true);
     }
@@ -41,7 +41,7 @@ public class MenuController implements Initializable {
         slide.setDuration(Duration.seconds(0.35));
         slide.setNode(paneslide);
 
-        slide.setToX(-200);
+        slide.setToX(-165);
         slide.play();
 
         paneslide.setTranslateX(0);
@@ -61,7 +61,7 @@ public class MenuController implements Initializable {
         slide.setToX(0);
         slide.play();
 
-        paneslide.setTranslateX(-200);
+        paneslide.setTranslateX(-165);
 
         slide.setOnFinished((ActionEvent e) -> {
             bar2.setVisible(true);

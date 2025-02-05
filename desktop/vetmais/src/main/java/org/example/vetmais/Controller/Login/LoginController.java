@@ -114,7 +114,8 @@ public class LoginController implements Initializable {
             User user = new User(email_login.getText(), senha_login.getText());
             daoUser.setConnection(connection);
             if(daoUser.buscar(user))
-                new SwitchScene(mainPane, "View/menu/fxml/tst.fxml");
+                //new SwitchScene(mainPane, "View/menu/fxml/tst.fxml");
+                new SwitchScene(mainPane, "View/menu/fxml/menu.fxml");
             else
                 login_incorreto.setVisible(true);
 

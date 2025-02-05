@@ -16,6 +16,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, InterruptedException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("View/login/fxml/new.fxml"));
+        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("View/menu/fxml/menu.fxml"));
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("View/Splash/fxml/splash.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         //scene.setFill(Color.TRANSPARENT);
