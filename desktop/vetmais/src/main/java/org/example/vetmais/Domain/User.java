@@ -2,17 +2,22 @@ package org.example.vetmais.Domain;
 
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
+import org.example.vetmais.Model.Validacao.ValidarCPF;
 import org.example.vetmais.Model.Validacao.ValidarEmail;
 
 public class User {
     private String email;
     private String password;
+    private String cpf;
+    private String name;
 
     public User() {}
 
-    public User(String email, String password) {
+    public User(String email, String password, String cpf, String name) {
         this.email = email;
         this.password = password;
+        this.cpf = cpf;
+        this.name = name;
     }
 
     public String getEmail() {
@@ -21,6 +26,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setCPF(String cpf)  {
+        this.cpf = cpf;
+    }
+
+    public String getCPF() {
+        return cpf;
     }
 
     public String getPassword() {
@@ -36,6 +49,12 @@ public class User {
         ValidarEmail validarEmail = new ValidarEmail();
         String email = validarEmail.ValidarEmail(getEmail());
         return email.contains("Válido");
+    }
+
+    public boolean isValidCPF() {
+        ValidarCPF validarCPF = new ValidarCPF();
+        String cpf = validarCPF.ValidarCPF(getCPF());
+        return cpf.contains("Válido");
     }
 
     public void setEncryptedPassword(String password) {

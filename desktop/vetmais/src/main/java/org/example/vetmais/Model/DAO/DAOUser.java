@@ -20,7 +20,7 @@ public class DAOUser {
     }
 
     public boolean cadastrar(User user) throws Exception {
-        if(user.getEmail().isEmpty() || user.getPassword().isEmpty() || !user.isValidEmail()) {
+        if(user.getEmail().isEmpty() || user.getPassword().isEmpty() || !user.isValidEmail()  || !user.isValidCPF()) {
             return false;
         }
         String sql = "INSERT INTO users (email, password) VALUES (?,?)";

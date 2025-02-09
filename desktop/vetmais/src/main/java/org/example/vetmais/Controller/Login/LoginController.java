@@ -35,6 +35,12 @@ public class LoginController implements Initializable {
     private TextField email_login;
 
     @FXML
+    private TextField nome;
+
+    @FXML
+    private TextField cpf;
+
+    @FXML
     private JFXButton entrarBtn;
 
     @FXML
@@ -89,7 +95,7 @@ public class LoginController implements Initializable {
     @FXML
     private void cadastrar(ActionEvent event) {
         try{
-            User user = new User(email_cadastro.getText(), senha_cadastro.getText());
+            User user = new User(email_cadastro.getText(), senha_cadastro.getText(), cpf.getText(), nome.getText());
             user.setEncryptedPassword(user.getPassword());
             daoUser.setConnection(connection);
             if(daoUser.cadastrar(user)){
@@ -97,6 +103,8 @@ public class LoginController implements Initializable {
                 cadastro_incorreto.setVisible(false);
                 email_cadastro.clear();
                 senha_cadastro.clear();
+                nome.clear();
+                cpf.clear();
             } else {
                 cadastro_correto.setVisible(false);
                 cadastro_incorreto.setVisible(true);
@@ -111,7 +119,7 @@ public class LoginController implements Initializable {
     @FXML
     private void login(ActionEvent event) {
         try{
-            User user = new User(email_login.getText(), senha_login.getText());
+            User user = new User(email_login.getText(), senha_login.getText(), cpf.getText(), nome.getText());
             daoUser.setConnection(connection);
             if(daoUser.buscar(user))
                 //new SwitchScene(mainPane, "View/menu/fxml/tst.fxml");
