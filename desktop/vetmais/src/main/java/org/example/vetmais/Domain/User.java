@@ -10,14 +10,28 @@ public class User {
     private String password;
     private String cpf;
     private String name;
+    private String privilege;
 
     public User() {}
 
-    public User(String email, String password, String cpf, String name) {
+    public User(String email, String password, String cpf, String name, String privilege) {
         this.email = email;
         this.password = password;
         this.cpf = cpf;
         this.name = name;
+        this.privilege = privilege;
+    }
+
+    public User(String email, String password, String cpf, String name) {
+        this(email, password, cpf, name, "normal");
+    }
+
+    public void setPrivilege(String privilege) {
+        this.privilege = privilege;
+    }
+
+    public String getPrivilege() {
+        return privilege;
     }
 
     public void setName(String name){

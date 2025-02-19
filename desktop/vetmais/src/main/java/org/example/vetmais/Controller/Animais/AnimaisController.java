@@ -17,8 +17,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import org.example.vetmais.Controller.UserAware;
 import org.example.vetmais.Domain.Animal;
 import org.example.vetmais.Domain.Consulta;
+import org.example.vetmais.Domain.User;
 import org.example.vetmais.HelloApplication;
 import org.example.vetmais.Model.Database.Database;
 import org.example.vetmais.Model.Database.DatabaseFactory;
@@ -34,7 +36,14 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class AnimaisController implements Initializable {
+public class AnimaisController implements Initializable , UserAware {
+
+    private User currentUser;
+
+    @Override
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
+    }
 
     @FXML
     private JFXButton addButton;
@@ -141,6 +150,11 @@ public class AnimaisController implements Initializable {
 
                         deleteButton.setStyle("-fx-background-color: #ff1744; -fx-text-fill: white; -fx-font-size: 12px;");
                         editButton.setStyle("-fx-background-color: #00E676; -fx-text-fill: white; -fx-font-size: 12px;");
+
+                        if (currentUser != null && !"admin".equals(currentUser.getPrivilege())) {
+                            deleteButton.setDisable(true);
+                            deleteButton.setOpacity(0.5); // Opcional: deixa o botão visualmente desativado
+                        }
 
                         deleteButton.setOnMouseClicked((MouseEvent event) -> {
                             try {

@@ -27,7 +27,7 @@ public class DAOUser {
         if(user.getEmail().isEmpty() || user.getPassword().isEmpty() || !user.isValidEmail()  || !user.isValidCPF()) {
             return false;
         }
-        String sql = "INSERT INTO users (email, password, token, expiration, nome, cpf) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO users (email, password, token, expiration, nome, cpf, privilege) VALUES (?,?,?,?,?,?,?)";
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, user.getEmail());
@@ -36,6 +36,7 @@ public class DAOUser {
             stmt.setObject(4, LocalDateTime.now().plusDays(10));
             stmt.setString(5, user.getName());
             stmt.setString(6, user.getCPF());
+            stmt.setString(7, user.getPrivilege());
 
             int rowsAffected = stmt.executeUpdate();
             return rowsAffected > 0;
@@ -75,7 +76,7 @@ public class DAOUser {
         return argon2.verify(hash, password.toCharArray());
     }
 
-    public boolean isTokenValid(String token) {
+    public User isTokenValid(String token) {
 
         String sql = "SELECT * FROM users WHERE token = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -85,18 +86,21 @@ public class DAOUser {
 
             if(resultSet.next()) {
                 //Date exp = resultSet.getDate("expiration");
+
+                String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
+                String cpf = resultSet.getString("cpf");
+                String name = resultSet.getString("nome");
+                String privilege = resultSet.getString("privilege");
                 LocalDateTime expiration = resultSet.getObject("expiration", java.time.LocalDateTime.class);
-                LocalDateTime now = LocalDateTime.now();
-
-                return !expiration.isBefore(now);
-                //return resultSet.getString("token").equals(token);
+                if (!expiration.isBefore(LocalDateTime.now())) {
+                    return new User(email, password, cpf, name, privilege);
+                }
             }
-
-            return false;
         } catch (SQLException ex) {
             Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
         }
+        return null;
     }
 
     private void atualizarExpiracaoToken(String token, LocalDateTime expiration) throws SQLException, IOException {

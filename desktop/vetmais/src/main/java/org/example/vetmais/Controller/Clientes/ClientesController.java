@@ -20,7 +20,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import org.example.vetmais.Controller.UserAware;
 import org.example.vetmais.Domain.Client;
+import org.example.vetmais.Domain.User;
 import org.example.vetmais.HelloApplication;
 import org.example.vetmais.Model.Database.Database;
 import org.example.vetmais.Model.Database.DatabaseFactory;
@@ -35,7 +37,14 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ClientesController implements Initializable {
+public class ClientesController implements Initializable , UserAware {
+
+    private User currentUser;
+
+    @Override
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
+    }
 
     @FXML
     private JFXButton addButton;

@@ -9,13 +9,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import org.example.vetmais.Controller.UserAware;
+import org.example.vetmais.Domain.User;
 import org.example.vetmais.Model.SwitchScene;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MenuController implements Initializable {
+public class MenuController implements Initializable, UserAware {
+    private User currentUser;
+
     @FXML
     private JFXButton bar2;
 
@@ -25,7 +29,7 @@ public class MenuController implements Initializable {
     @FXML
     private AnchorPane paneslide;
 
-    public MenuController() throws IOException {
+    public MenuController()  {
     }
 
     @Override
@@ -74,16 +78,21 @@ public class MenuController implements Initializable {
 
     @FXML
     private void pagecli(MouseEvent event) throws IOException {
-        new SwitchScene(content, "View/Clientes/FXML/Clientes.fxml");
+        new SwitchScene(content, "View/Clientes/FXML/Clientes.fxml", currentUser);
     }
 
     @FXML
     private void pageani(MouseEvent event) throws IOException {
-        new SwitchScene(content, "View/Animais/FXML/Animais.fxml");
+        new SwitchScene(content, "View/Animais/FXML/Animais.fxml", currentUser);
     }
 
     @FXML
     private void pagecons(MouseEvent event) throws IOException {
-        new SwitchScene(content, "View/Consultas/FXML/Consultas.fxml");
+        new SwitchScene(content, "View/Consultas/FXML/Consultas.fxml", currentUser);
+    }
+
+    @Override
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
     }
 }
