@@ -27,13 +27,15 @@ public class DAOUser {
         if(user.getEmail().isEmpty() || user.getPassword().isEmpty() || !user.isValidEmail()  || !user.isValidCPF()) {
             return false;
         }
-        String sql = "INSERT INTO users (email, password, token, expiration) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO users (email, password, token, expiration, nome, cpf) VALUES (?,?,?,?,?,?)";
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, user.getEmail());
             stmt.setString(2, user.getPassword());
             stmt.setString(3, UUID.randomUUID().toString());
             stmt.setObject(4, LocalDateTime.now().plusDays(10));
+            stmt.setString(5, user.getName());
+            stmt.setString(6, user.getCPF());
 
             int rowsAffected = stmt.executeUpdate();
             return rowsAffected > 0;
