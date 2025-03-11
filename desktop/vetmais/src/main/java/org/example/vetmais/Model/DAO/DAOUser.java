@@ -46,9 +46,9 @@ public class DAOUser {
         }
     }
 
-    public boolean buscar(User user) throws Exception {
+    public User buscar(User user) throws Exception {
         if(user.getEmail().isEmpty() || user.getPassword().isEmpty())
-            return false;
+            return null;
         String sql = "SELECT * FROM users WHERE email = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, user.getEmail());
@@ -61,14 +61,16 @@ public class DAOUser {
                     //LocalDateTime newExpiration = LocalDateTime.now().plusMinutes(2);
                     //LocalDateTime newExpiration = LocalDateTime.now().plusHours(1);
                     String token = resultSet.getString("token");
+                    String privilege = resultSet.getString("privilege");
                     atualizarExpiracaoToken(token, newExpiration);
-                    return true;
+                    user.setPrivilege(privilege);
+                    return user;
                 }
 
-            return false;
+            return null;
         } catch (SQLException ex) {
             Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
+            return null;
         }
     }
     private boolean verifyPassword(String password, String hash) {

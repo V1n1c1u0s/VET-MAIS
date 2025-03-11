@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.example.vetmais.Controller.Menu.MenuController;
 import org.example.vetmais.Domain.User;
 import org.example.vetmais.Launcher.InitPreloader;
 import org.example.vetmais.Launcher.LauncherPreloader;
@@ -35,6 +36,8 @@ public class HelloApplication extends Application {
             if(currentUser != null){
                 fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("View/menu/fxml/menu.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
+                MenuController menuController = fxmlLoader.getController();
+                menuController.setCurrentUser(currentUser);
                 SwitchScene switchScene = new SwitchScene(new AnchorPane(),"View/menu/fxml/menu.fxml", currentUser);
                 stage.setScene(scene);
                 stage.show();
