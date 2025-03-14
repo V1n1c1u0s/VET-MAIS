@@ -43,6 +43,7 @@
             </styleClass>
             </JFXButton>
          <TextField fx:id="cpf" layoutX="86.0" layoutY="245.0" prefHeight="42.0" prefWidth="227.0" promptText="CPF/CNPJ" styleClass="input-box" stylesheets="@../CSS/login.css" />
+         <JFXButton layoutX="370.0" layoutY="18.0" onAction="#closeWindow" style="-fx-background-color: #211080;" text="x" textFill="#fcf9f9" fx:id="x2" />
          <TextField fx:id="nome" layoutX="86.0" layoutY="193.0" prefHeight="42.0" prefWidth="227.0" promptText="Nome Completo" styleClass="input-box" stylesheets="@../CSS/login.css" />
             <AnchorPane fx:id="panelSlide" prefHeight="600.0" prefWidth="400.0" styleClass="bodybg" stylesheets="@../CSS/login.css">
                 <JFXButton fx:id="ps_cadastroBtn" layoutX="157.0" layoutY="438.0" onAction="#psCadastro" prefHeight="42.0" prefWidth="98.0" stylesheets="@../CSS/login.css" text="Cadastrar">
@@ -66,6 +67,7 @@
                </styleClass>
                 </JFXButton>
             <Text layoutX="64.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="twt" text="Bem-Vindo (a) !" wrappingWidth="286.4000000000001" />
+            <JFXButton layoutX="370.0" layoutY="18.0" onAction="#closeWindow" style="-fx-background-color: #211080;" text="x" textFill="#fcf9f9" fx:id="x1" />
             </AnchorPane>
         </AnchorPane>
     </HBox>

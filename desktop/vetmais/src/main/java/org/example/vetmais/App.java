@@ -35,7 +35,7 @@ public class App extends Application {
 
                 Platform.runLater(() -> {
                     DAOUser daoUser = new DAOUser();
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/vetmais/View/Login/FXML/new.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/vetmais/View/Login/FXML/Menu.fxml"));
                     Database db = DatabaseFactory.getDatabase("mysql");
                     assert db != null;
                     Connection c = db.getConnection();

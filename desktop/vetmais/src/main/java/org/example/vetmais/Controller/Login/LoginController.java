@@ -28,6 +28,12 @@ public class LoginController implements Initializable {
     private JFXButton cadastroBtn;
 
     @FXML
+    private JFXButton x1;
+
+    @FXML
+    private JFXButton x2;
+
+    @FXML
     private TextField email_cadastro;
 
     @FXML
@@ -139,6 +145,8 @@ public class LoginController implements Initializable {
         slide.play();
 
         panelSlide.setTranslateX(0);
+        x1.setVisible(false);
+        x2.setVisible(true);
 
         slide.setOnFinished((ActionEvent e) -> {
             label_cadastro.setVisible(false);
@@ -163,6 +171,8 @@ public class LoginController implements Initializable {
         slide.play();
 
         panelSlide.setTranslateX(-400);
+        x1.setVisible(true);
+        x2.setVisible(false);
 
         slide.setOnFinished((ActionEvent e) -> {
             ps_loginBtn.setVisible(false);
@@ -175,6 +185,11 @@ public class LoginController implements Initializable {
             senha_cadastro.clear();
             email_cadastro.clear();
         });
+    }
+
+    @FXML
+    void closeWindow(ActionEvent event) {
+        ((javafx.stage.Stage) ((JFXButton) event.getSource()).getScene().getWindow()).close();
     }
 
 }

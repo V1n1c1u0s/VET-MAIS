@@ -5,12 +5,15 @@ import com.jfoenix.controls.JFXButton;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import org.example.vetmais.Controller.UserAware;
 import org.example.vetmais.Domain.User;
+import org.example.vetmais.Model.Session.SessionManager;
 import org.example.vetmais.Model.SwitchScene;
 import java.io.IOException;
 import java.net.URL;
@@ -90,6 +93,22 @@ public class MenuController implements Initializable, UserAware {
     private void pagecons(MouseEvent event) throws IOException {
         new SwitchScene(content, "/org/example/vetmais/View/Consultas/FXML/Consultas.fxml", currentUser);
     }
+
+    @FXML
+    void logOut(ActionEvent event) throws IOException {
+        SessionManager.clearSession();
+        //closeWindow(event);
+        javafx.stage.Stage stage = (javafx.stage.Stage) ((JFXButton) event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/vetmais/View/Login/FXML/Menu.fxml"));
+        Scene scene = new Scene(loader.load());
+        stage.setScene(scene);
+    }
+
+    @FXML
+    void closeWindow(ActionEvent event) {
+        ((javafx.stage.Stage) ((JFXButton) event.getSource()).getScene().getWindow()).close();
+    }
+
 
     @Override
     public void setCurrentUser(User user) {
