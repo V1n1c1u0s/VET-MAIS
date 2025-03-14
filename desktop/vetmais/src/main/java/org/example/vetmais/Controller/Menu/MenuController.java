@@ -99,7 +99,7 @@ public class MenuController implements Initializable, UserAware {
         SessionManager.clearSession();
         //closeWindow(event);
         javafx.stage.Stage stage = (javafx.stage.Stage) ((JFXButton) event.getSource()).getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/vetmais/View/Login/FXML/Menu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/vetmais/View/Login/FXML/Login.fxml"));
         Scene scene = new Scene(loader.load());
         stage.setScene(scene);
     }
@@ -109,6 +109,11 @@ public class MenuController implements Initializable, UserAware {
         ((javafx.stage.Stage) ((JFXButton) event.getSource()).getScene().getWindow()).close();
     }
 
+    @FXML
+    void minWindow(ActionEvent event) {
+        javafx.stage.Stage stage = (javafx.stage.Stage) ((JFXButton) event.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
 
     @Override
     public void setCurrentUser(User user) {

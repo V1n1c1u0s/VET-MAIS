@@ -126,7 +126,7 @@ public class LoginController implements Initializable {
             daoUser.setConnection(connection);
             User currentUser = daoUser.buscar(user);
             if(currentUser != null)
-                new SwitchScene(mainPane, "/org/example/vetmais/View/Menu/FXML/menu.fxml", currentUser);
+                new SwitchScene(mainPane, "/org/example/vetmais/View/Menu/FXML/Menu.fxml", currentUser);
             else
                 login_incorreto.setVisible(true);
 

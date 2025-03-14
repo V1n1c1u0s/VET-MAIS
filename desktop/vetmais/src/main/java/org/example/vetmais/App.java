@@ -35,7 +35,7 @@ public class App extends Application {
 
                 Platform.runLater(() -> {
                     DAOUser daoUser = new DAOUser();
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/vetmais/View/Login/FXML/Menu.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/vetmais/View/Login/FXML/Login.fxml"));
                     Database db = DatabaseFactory.getDatabase("mysql");
                     assert db != null;
                     Connection c = db.getConnection();
@@ -49,12 +49,12 @@ public class App extends Application {
                     if (token != null) {
                         User currentUser = daoUser.isTokenValid(token);
                         if(currentUser != null){
-                            fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/vetmais/View/Menu/FXML/menu.fxml"));
+                            fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/vetmais/View/Menu/FXML/Menu.fxml"));
                             try {
                                 Scene sceneA = new Scene(fxmlLoader.load());
                                 MenuController menuController = fxmlLoader.getController();
                                 menuController.setCurrentUser(currentUser);
-                                new SwitchScene(new AnchorPane(), "/org/example/vetmais/View/Menu/FXML/menu.fxml", currentUser);
+                                new SwitchScene(new AnchorPane(), "/org/example/vetmais/View/Menu/FXML/Menu.fxml", currentUser);
                                 primaryStage.setScene(sceneA);
                                 primaryStage.show();
                             } catch (IOException e) {
