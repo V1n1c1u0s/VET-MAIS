@@ -90,13 +90,13 @@
             <version>5.15.0</version> <!-- Choose the latest stable version -->
         </dependency>
         <dependency>
-            <groupId>local.fontawesomefx</groupId>
+            <groupId>de.jensd</groupId>
             <artifactId>fontawesomefx</artifactId>
             <version>8.2</version>
         </dependency>
         <dependency>
-            <groupId>local.com.jfoenix</groupId>
-            <artifactId>com.jfoenix</artifactId>
+            <groupId>com.jfoenix</groupId>
+            <artifactId>jfoenix</artifactId>
             <version>9.0.10</version>
         </dependency>
     </dependencies>

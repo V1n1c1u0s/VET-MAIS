@@ -1,8 +1,6 @@
 package org.example.vetmais.Model.DAO;
 
-import com.mysql.cj.x.protobuf.MysqlxPrepare;
 import org.example.vetmais.Domain.Animal;
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;

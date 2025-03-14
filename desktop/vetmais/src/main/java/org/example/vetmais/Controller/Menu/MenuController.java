@@ -12,7 +12,6 @@ import javafx.util.Duration;
 import org.example.vetmais.Controller.UserAware;
 import org.example.vetmais.Domain.User;
 import org.example.vetmais.Model.SwitchScene;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

@@ -1,7 +1,6 @@
 package org.example.vetmais.Model.DAO;
 
 import org.example.vetmais.Domain.Consulta;
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;

@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import org.example.vetmais.Domain.Client;
-import org.example.vetmais.Domain.Consulta;
 import org.example.vetmais.Model.DAO.DAOClient;
 import org.example.vetmais.Model.Database.Database;
 import org.example.vetmais.Model.Database.DatabaseFactory;

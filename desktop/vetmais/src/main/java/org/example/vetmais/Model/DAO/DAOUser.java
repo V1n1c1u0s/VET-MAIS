@@ -4,7 +4,6 @@ import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import org.example.vetmais.Domain.User;
 import org.example.vetmais.Model.Session.SessionManager;
-
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;

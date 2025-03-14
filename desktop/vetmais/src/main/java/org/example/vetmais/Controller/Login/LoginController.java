@@ -15,7 +15,6 @@ import org.example.vetmais.Model.DAO.DAOUser;
 import org.example.vetmais.Model.Database.Database;
 import org.example.vetmais.Model.Database.DatabaseFactory;
 import org.example.vetmais.Model.SwitchScene;
-
 import java.net.URL;
 import java.sql.Connection;
 import java.util.ResourceBundle;
@@ -109,8 +108,6 @@ public class LoginController implements Initializable {
                 cadastro_correto.setVisible(false);
                 cadastro_incorreto.setVisible(true);
             }
-
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

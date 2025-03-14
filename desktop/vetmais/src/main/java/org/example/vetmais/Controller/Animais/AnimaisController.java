@@ -20,7 +20,6 @@ import javafx.util.Callback;
 import org.example.vetmais.Controller.UserAware;
 import org.example.vetmais.Domain.Animal;
 import org.example.vetmais.Domain.User;
-import org.example.vetmais.App;
 import org.example.vetmais.Model.Database.Database;
 import org.example.vetmais.Model.Database.DatabaseFactory;
 import java.io.IOException;

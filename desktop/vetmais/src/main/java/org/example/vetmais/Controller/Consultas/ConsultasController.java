@@ -23,10 +23,8 @@ import javafx.util.Callback;
 import org.example.vetmais.Controller.UserAware;
 import org.example.vetmais.Domain.Consulta;
 import org.example.vetmais.Domain.User;
-import org.example.vetmais.App;
 import org.example.vetmais.Model.Database.Database;
 import org.example.vetmais.Model.Database.DatabaseFactory;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;

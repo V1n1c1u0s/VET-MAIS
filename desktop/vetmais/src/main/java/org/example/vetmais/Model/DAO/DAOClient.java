@@ -1,7 +1,6 @@
 package org.example.vetmais.Model.DAO;
 
 import org.example.vetmais.Domain.Client;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
