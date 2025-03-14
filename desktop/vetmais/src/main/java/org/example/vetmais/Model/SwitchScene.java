@@ -2,7 +2,7 @@ package org.example.vetmais.Model;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
-import org.example.vetmais.HelloApplication;
+import org.example.vetmais.App;
 import org.example.vetmais.Controller.UserAware;
 import org.example.vetmais.Domain.User;
 
@@ -12,7 +12,8 @@ import java.util.Objects;
 public class SwitchScene {
     public SwitchScene(AnchorPane currentAnchorPane, String sceneName, User currentUser) throws IOException {
         // Carrega a nova cena
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(HelloApplication.class.getResource(sceneName)));
+        //FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(App.class.getResource(sceneName)));
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(sceneName)));
         AnchorPane nextAnchorPane = loader.load();
 
         // Passa o currentUser para o controlador, se ele implementar a interface UserAware

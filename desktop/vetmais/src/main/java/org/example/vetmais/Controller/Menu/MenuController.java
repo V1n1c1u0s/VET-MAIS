@@ -78,18 +78,18 @@ public class MenuController implements Initializable, UserAware {
 
     @FXML
     private void pagecli(MouseEvent event) throws IOException {
-        new SwitchScene(content, "View/Clientes/FXML/Clientes.fxml", currentUser);
+        new SwitchScene(content, "/org/example/vetmais/View/Clientes/FXML/Clientes.fxml", currentUser);
     }
 
     @FXML
     private void pageani(MouseEvent event) throws IOException {
         System.out.println(currentUser.getPrivilege());
-        new SwitchScene(content, "View/Animais/FXML/Animais.fxml", currentUser);
+        new SwitchScene(content, "/org/example/vetmais/View/Animais/FXML/Animais.fxml", currentUser);
     }
 
     @FXML
     private void pagecons(MouseEvent event) throws IOException {
-        new SwitchScene(content, "View/Consultas/FXML/Consultas.fxml", currentUser);
+        new SwitchScene(content, "/org/example/vetmais/View/Consultas/FXML/Consultas.fxml", currentUser);
     }
 
     @Override

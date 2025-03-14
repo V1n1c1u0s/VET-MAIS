@@ -23,7 +23,7 @@ import javafx.util.Callback;
 import org.example.vetmais.Controller.UserAware;
 import org.example.vetmais.Domain.Client;
 import org.example.vetmais.Domain.User;
-import org.example.vetmais.HelloApplication;
+import org.example.vetmais.App;
 import org.example.vetmais.Model.Database.Database;
 import org.example.vetmais.Model.Database.DatabaseFactory;
 import java.io.IOException;
@@ -97,7 +97,7 @@ public class ClientesController implements Initializable , UserAware {
 
     @FXML
     void addCliente(MouseEvent event) throws Exception {
-        AnchorPane addClientePane = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("View/Clientes/FXML/Add.fxml")));
+        AnchorPane addClientePane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/example/vetmais/View/Clientes/FXML/Add.fxml")));
         Scene scene = new Scene(addClientePane);
         Stage stage = new Stage();
         stage.setTitle("Clientes");
@@ -183,7 +183,7 @@ public class ClientesController implements Initializable , UserAware {
                         editButton.setOnMouseClicked((MouseEvent event) -> {
                             try {
                                 client = clienteTable.getSelectionModel().getSelectedItem();
-                                FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(HelloApplication.class.getResource("View/Clientes/FXML/Edit.fxml")));
+                                FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/example/vetmais/View/Clientes/FXML/Edit.fxml")));
                                 Parent root = loader.load();
                                 EditController editController = loader.getController();
                                 editController.setClient(client);

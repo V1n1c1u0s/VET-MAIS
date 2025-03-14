@@ -19,9 +19,8 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.example.vetmais.Controller.UserAware;
 import org.example.vetmais.Domain.Animal;
-import org.example.vetmais.Domain.Consulta;
 import org.example.vetmais.Domain.User;
-import org.example.vetmais.HelloApplication;
+import org.example.vetmais.App;
 import org.example.vetmais.Model.Database.Database;
 import org.example.vetmais.Model.Database.DatabaseFactory;
 import java.io.IOException;
@@ -96,7 +95,7 @@ public class AnimaisController implements Initializable , UserAware {
 
     @FXML
     void addAnimal(MouseEvent event) throws IOException{
-        AnchorPane addConsultaPane = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("View/Animais/FXML/Add.fxml")));
+        AnchorPane addConsultaPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/example/vetmais/View/Animais/FXML/Add.fxml")));
         Scene scene = new Scene(addConsultaPane);
         Stage stage = new Stage();
         stage.setTitle("Animais");
@@ -173,7 +172,7 @@ public class AnimaisController implements Initializable , UserAware {
                         editButton.setOnMouseClicked((MouseEvent event) -> {
                             try {
                                 animal = animalTable.getSelectionModel().getSelectedItem();
-                                FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(HelloApplication.class.getResource("View/Animais/FXML/Edit.fxml")));
+                                FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/example/vetmais/View/Animais/FXML/Edit.fxml")));
                                 Parent root = loader.load();
                                 EditController editController = loader.getController();
                                 editController.setAnimal(animal);

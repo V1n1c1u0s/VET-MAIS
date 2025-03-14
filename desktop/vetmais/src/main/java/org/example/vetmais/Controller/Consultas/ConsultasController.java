@@ -1,9 +1,6 @@
 package org.example.vetmais.Controller.Consultas;
 
 import com.jfoenix.controls.JFXButton;
-import de.jensd.fx.glyphs.GlyphIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcons;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -26,7 +23,7 @@ import javafx.util.Callback;
 import org.example.vetmais.Controller.UserAware;
 import org.example.vetmais.Domain.Consulta;
 import org.example.vetmais.Domain.User;
-import org.example.vetmais.HelloApplication;
+import org.example.vetmais.App;
 import org.example.vetmais.Model.Database.Database;
 import org.example.vetmais.Model.Database.DatabaseFactory;
 
@@ -36,7 +33,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -103,7 +99,7 @@ public class ConsultasController implements Initializable , UserAware {
 
     @FXML
     void addConsulta(MouseEvent event) throws Exception {
-        AnchorPane addConsultaPane = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("View/Consultas/FXML/add.fxml")));
+        AnchorPane addConsultaPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/example/vetmais/View/Consultas/FXML/add.fxml")));
         Scene scene = new Scene(addConsultaPane);
         Stage stage = new Stage();
         stage.setTitle("Consultas");
@@ -192,7 +188,7 @@ public class ConsultasController implements Initializable , UserAware {
                         editButton.setOnMouseClicked((MouseEvent event) -> {
                             try {
                                 consulta = consultaTable.getSelectionModel().getSelectedItem();
-                                FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(HelloApplication.class.getResource("View/Consultas/FXML/Edit.fxml")));
+                                FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/example/vetmais/View/Consultas/FXML/Edit.fxml")));
                                 Parent root = loader.load();
                                 EditController editController = loader.getController();
                                 editController.setConsulta(consulta);
