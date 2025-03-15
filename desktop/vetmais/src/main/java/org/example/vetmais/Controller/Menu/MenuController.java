@@ -85,7 +85,6 @@ public class MenuController implements Initializable, UserAware {
 
     @FXML
     private void pageani(MouseEvent event) throws IOException {
-        System.out.println(currentUser.getPrivilege());
         new SwitchScene(content, "/org/example/vetmais/View/Animais/FXML/Animais.fxml", currentUser);
     }
 

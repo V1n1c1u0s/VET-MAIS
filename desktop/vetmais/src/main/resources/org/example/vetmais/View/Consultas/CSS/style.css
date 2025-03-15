@@ -1,4 +1,74 @@
-.i{
-    --fxbackground-color: transparent;
-    -fx-border-color: 1px solid #383535;
+AnchorPane {
+    padding: 20px;
+    spacing: 15px;
+    -fx-background-color: #fafafa;
+}
+
+#searchBar {
+    -fx-font-size: 15px;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-radius: 25px;
+    -fx-border-color: red;
+    -fx-padding: 8px 15px;
+    -fx-prompt-text-fill: #aaa;
+    -fx-text-fill: #333;
+}
+
+#searchBar:focused {
+    -fx-border-color: #4e92c3;
+}
+
+#consultaTable {
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1px;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+    -fx-selection-bar: #4e92c3;
+    -fx-effect: innershadow(gaussian, #aaa, 5, 0.5, 0, 0);
+}
+
+
+#clientColumn, #ownerColumn, #vetColumn, #dateColumn {
+    -fx-cell-text-fill: #444;
+    -fx-alignment: center-left;
+    -fx-padding: 5px;
+    -fx-border-radius: 8px 8px 10px 10px;
+}
+
+#consultaTable .column-header {
+    -fx-background-color: #4e92c3;
+    -fx-text-fill: #fff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-border-radius: 8px 8px 10px 10px;
+}
+
+#consultaTable .table-column-cell {
+    -fx-padding: 8px 10px;
+    -fx-alignment: center-left;
+    -fx-border-radius: 8px 8px 10px 10px;
+}
+
+#consultaTable .table-row-cell:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+#consultaTable .table-row-cell:selected {
+    -fx-background-color: #e0e0e0;
+}
+
+
+.scroll-bar {
+    -fx-background-color: #f0f0f0;
+    -fx-background-insets: 0;
+    -fx-border-radius: 5px;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #4e92c3;
+    -fx-background-insets: 0;
+    -fx-border-radius: 5px;
 }

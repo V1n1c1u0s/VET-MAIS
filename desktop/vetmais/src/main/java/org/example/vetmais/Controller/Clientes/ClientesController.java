@@ -145,13 +145,6 @@ public class ClientesController implements Initializable , UserAware {
                         setText(null);
                         setGraphic(null);
                     } else {
-                        /* Ajeitar icones
-                        FontAwesomeIcon deleteIcon = new FontAwesomeIcon();
-                        FontAwesomeIcon editIcon = new FontAwesomeIcon();
-
-
-                        deleteIcon.setIcon(FontAwesomeIcons.TRASH);
-                        editIcon.setIcon(FontAwesomeIcons.valueOf("PENCIL_SQUARE"));*/
 
                         JFXButton editButton = new JFXButton("Editar");
                         JFXButton deleteButton = new JFXButton("Excluir");
@@ -159,12 +152,11 @@ public class ClientesController implements Initializable , UserAware {
                         deleteButton.setStyle("-fx-background-color: #ff1744; -fx-text-fill: white; -fx-font-size: 12px;");
                         editButton.setStyle("-fx-background-color: #00E676; -fx-text-fill: white; -fx-font-size: 12px;");
 
-                        /*deleteIcon.setStyle(
-                                "-fx-cursor: hand; -fx-fill:#ff1744; -fx-font-size:28px;"
-                        );
-                        editIcon.setStyle(
-                                "-fx-cursor: hand; -glyph-size:28px; -fx-fill:#00E676;"
-                        );*/
+                        if (currentUser != null && !"admin".equals(currentUser.getPrivilege())) {
+                            deleteButton.setDisable(true);
+                            deleteButton.setOpacity(0.5); // Opcional: deixa o botão visualmente desativado
+                        }
+
                         deleteButton.setOnMouseClicked((MouseEvent event) -> {
                             try {
                                 client = clienteTable.getSelectionModel().getSelectedItem();

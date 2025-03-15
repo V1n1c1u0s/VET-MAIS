@@ -12,13 +12,10 @@ public class SwitchScene {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(sceneName)));
         AnchorPane nextAnchorPane = loader.load();
 
-        // Passa o currentUser para o controlador, se ele implementar a interface UserAware
         Object controller = loader.getController();
-        if (controller instanceof UserAware) {
+        if (controller instanceof UserAware)
             ((UserAware) controller).setCurrentUser(currentUser);
-        }
 
-        // Atualiza o layout da cena
         currentAnchorPane.getChildren().clear();
         currentAnchorPane.getChildren().add(nextAnchorPane);
     }

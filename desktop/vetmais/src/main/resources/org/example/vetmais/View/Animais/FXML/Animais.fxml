@@ -2,20 +2,18 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.vetmais.Controller.Animais.AnimaisController">
-    <Label layoutX="64.0" layoutY="30.0" stylesheets="@../CSS/style.css" text="Pesquise animais:" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.vetmais.Controller.Animais.AnimaisController">
     <JFXButton fx:id="addButton" alignment="CENTER" layoutX="484.0" layoutY="26.0" onMouseClicked="#addAnimal" stylesheets="@../CSS/style.css" text="Add">
         <graphic>
             <FontAwesomeIcon glyphName="PLUS" />
         </graphic>
     </JFXButton>
-    <TableView fx:id="animalTable" layoutX="64.0" layoutY="58.0" prefHeight="284.0" prefWidth="472.0" stylesheets="@../CSS/style.css">
+    <TableView fx:id="animalTable" layoutX="64.0" layoutY="67.0" prefHeight="284.0" prefWidth="472.0">
         <columns>
             <TableColumn fx:id="nameColumn" prefWidth="75.0" text="NOME" />
             <TableColumn fx:id="cpfColumn" prefWidth="101.5999755859375" text="PROPRIETÁRIO" />
@@ -24,5 +22,5 @@
             <TableColumn fx:id="editColumn" prefWidth="113.60000610351562" text="AÇÕES" />
         </columns>
     </TableView>
-    <TextField fx:id="searchBar" layoutX="170.0" layoutY="26.0" prefHeight="33.0" prefWidth="302.0" stylesheets="@../CSS/style.css" />
+    <TextField fx:id="searchBar" layoutX="64.0" layoutY="19.0" prefHeight="39.0" prefWidth="410.0" promptText=" Pesquisar Animais:" />
 </AnchorPane>
