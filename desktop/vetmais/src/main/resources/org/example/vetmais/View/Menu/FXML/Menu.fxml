@@ -41,7 +41,7 @@
                      <Font size="14.0" />
                   </font>
                </JFXButton>
-               <JFXButton prefHeight="54.0" prefWidth="200.0" styleClass="btn" stylesheets="@../CSS/menu.css" text="   Relatórios">
+               <JFXButton onMouseClicked="#pagerel" prefHeight="54.0" prefWidth="200.0" styleClass="btn" stylesheets="@../CSS/menu.css" text="   Relatórios">
                   <graphic>
                      <FontAwesomeIcon glyphName="CLIPBOARD" size="1.2em" styleClass="btn" />
                   </graphic>
@@ -49,7 +49,7 @@
                      <Font size="14.0" />
                   </font>
                </JFXButton>
-               <JFXButton prefHeight="54.0" prefWidth="200.0" styleClass="btn" stylesheets="@../CSS/menu.css" text="   Estoque">
+               <JFXButton onMouseClicked="#pageest" prefHeight="54.0" prefWidth="200.0" styleClass="btn" stylesheets="@../CSS/menu.css" text="   Estoque">
                   <graphic>
                      <FontAwesomeIcon glyphName="BRIEFCASE" size="1.2em" styleClass="btn" />
                   </graphic>
@@ -57,7 +57,7 @@
                      <Font size="14.0" />
                   </font>
                </JFXButton>
-               <JFXButton prefHeight="54.0" prefWidth="200.0" stylesheets="@../CSS/menu.css" text="   Contato">
+               <JFXButton onMouseClicked="#pagecont" prefHeight="54.0" prefWidth="200.0" stylesheets="@../CSS/menu.css" text="   Contato">
                   <graphic>
                      <FontAwesomeIcon glyphName="PHONE" size="1.2em" styleClass="btn" />
                   </graphic>

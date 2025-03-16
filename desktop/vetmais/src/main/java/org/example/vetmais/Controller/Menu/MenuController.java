@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -94,6 +95,39 @@ public class MenuController implements Initializable, UserAware {
     }
 
     @FXML
+    void pagecont(MouseEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Contato");
+        alert.setHeaderText("Clicou no contato");
+        alert.setContentText("Deseja fazer contato?");
+        alert.showAndWait();
+    }
+
+    @FXML
+    void pageest(MouseEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Estoque");
+        alert.setHeaderText("Estoque");
+        alert.setContentText("Veja o estoque");
+        alert.showAndWait();
+    }
+
+    @FXML
+    void pagerel(MouseEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        if("admin".equals(currentUser.getPrivilege())) {
+            alert.setTitle("Relatórios");
+            alert.setHeaderText("Relatórios");
+            alert.setContentText("Veja os relatórios.");
+        } else {
+            alert.setHeaderText("Relatórios");
+            alert.setContentText("Você não tem permissão para acessar essa página.");
+        }
+        alert.showAndWait();
+    }
+
+
+        @FXML
     void logOut(ActionEvent event) throws IOException {
         SessionManager.clearSession();
         //closeWindow(event);
